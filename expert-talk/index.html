@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abaka Open Day — Expert Talk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<div class="deck"><div class="stage">
+<!-- ===== T01 · TITLE (orange) ===== -->
+<section class="slide sl-orange a-title" id="t01">
+  <div class="wm-layer half-r"></div>
+  <img src="assets/collected/market/abaka_white.png" alt="Abaka" style="height:46px; width:auto; align-self:flex-start; margin-bottom:30px;">
+  <h1>Abaka Robotics Open Day</h1>
+  <div class="sub">The expert talk: how robots work, who is building them, and where we fit.</div>
+  <div class="foot">abaka <span>robotics</span></div>
+  <div class="date mono">2026·08</div>
+</section>
+
+<!-- ===== T02 · AGENDA (paper) ===== -->
+<section class="slide sl-paper a-agenda" id="t02">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">This afternoon</div>
+  <div class="k-h2">Three ways to meet the robots</div>
+  <div class="cards">
+    <div class="cardK"><span class="pillK">20 min</span><h3>Expert talk</h3><p>How robots learn, the data market around them, and what Abaka builds for it.</p><p class="more">four parts: one command end to end · old dream, new method · the market · us</p></div>
+    <div class="cardK"><span class="chipK">10 min</span><h3>Robotics demo</h3><p>Live planning and execution in the demo session: cubes picked, stacked, handed over.</p><p class="more">Yifan runs Pantograph on the real ALOHA rig</p></div>
+    <div class="cardK"><span class="chipK">30 min</span><h3>Hands on</h3><p>Tactile gloves, VR hand tracking, and teleoperating ALOHA yourself.</p><p class="more">three stations, rotate freely · Zack and Yifan will be around</p></div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>T·02</b> · AGENDA</span>
+  </div>
+</section>
+
+<!-- ===== D1 · DIVIDER (orange) ===== -->
+<section class="slide sl-orange a-div" id="d1">
+  <div class="wm-layer half-r"></div>
+  <div class="num mono">SECTION 01 / 04</div>
+  <h1>Journey of a command</h1>
+  <div class="sub">One command, followed all the way through a real robot.</div>
+  <div class="dots"><i class="on"></i><i></i><i></i><i></i><span class="mono">JOURNEY · NARRATIVE · MARKET · ABAKA</span></div>
+</section>
+<!-- ===== J·CMD · the hook + typed command (paper) ===== -->
+<section class="slide sl-paper" id="j-cmd">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Follow one command <b>all the way through</b></div>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:28px;">
+    <div class="termK" style="font-size:30px; padding:28px 34px;">
+      <span class="p">$</span> <span data-type="clean the kitchen"></span><span class="cursor"></span>
+    </div>
+    <ul class="k-list">
+      <li>No scripting, no waypoints, no reset. <b>A sentence is the whole interface.</b></li>
+      <li>Any granularity works: “clean the kitchen” · “put the dishes in the sink” · “pick up the spoon”.</li>
+      <li>We trace it through one real system: <b>π0.5</b>, which cleans homes it has never seen.</li>
+    </ul>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — Physical Intelligence · arXiv:2504.16054 · pi.website/blog/pi05</span>
+    <span class="idx"><b>J·01</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·ROBOT · the hardware (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-robot">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">The robot that takes it</div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox">
+        <img class="fit" src="assets/collected/papers/pi05_fig5_robot_hardware.png" alt="pi0.5 robot hardware overview">
+      </div>
+      <div class="cap"><b>FIG</b> — π0.5 mobile manipulators · Physical Intelligence, paper Fig 5</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li><b>Two 6-DoF arms</b> with parallel grippers.</li>
+        <li>A wheeled base and a torso lift, so it can drive and reach.</li>
+        <li><b>Four RGB cameras</b>: forward, backward, one on each wrist.</li>
+        <li>No lidar, no depth sensors for manipulation. Cameras only, like us.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — arXiv:2504.16054, Fig 5</span>
+    <span class="idx"><b>J·02</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·SYS · the pi0.5 system at a glance (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-sys">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">The π0.5 system, <b>at a glance</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/pi05_fig3_model_overview.png" alt="pi0.5 model and training overview"></div>
+      <div class="cap"><b>FIG</b> — the whole system on one page · π0.5 paper, Fig 3</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>One model with two jobs. The <b>backbone</b> is a vision-language model, pretrained on the web.</li>
+        <li>Job one: read the cameras and the command, write the next subtask <b>in words</b>.</li>
+        <li>Job two: a small add-on, the <b>“action expert”</b>, turns that subtask into joint motions.</li>
+        <li>The next slides walk this picture left to right: what it senses, how it decides, how it moves.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — arXiv:2504.16054, Fig 3</span>
+    <span class="idx"><b>J·03</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·SENSE · four-camera wall (cinema) ===== -->
+<section class="slide sl-dark a-wall" id="j-sense">
+  <div class="wm-layer"></div>
+  <h2>What it senses, <b>all at once</b></h2>
+  <div class="tiles" style="grid-template-columns:repeat(3,1fr);">
+    <div class="tile"><video src="assets/collected/pi/pi05_robotview_kitchen_left.mp4" muted loop playsinline preload="none"></video><span>left wrist camera</span><span class="detail">close-range view for the final centimeters of a grasp</span></div>
+    <div class="tile"><video src="assets/collected/pi/pi05_robotview_kitchen_base.mp4" muted loop playsinline preload="none"></video><span>base camera · kitchen run · 5×</span><span class="detail">mounted between the arms, facing the work</span></div>
+    <div class="tile"><video src="assets/collected/pi/pi05_robotview_kitchen_right.mp4" muted loop playsinline preload="none"></video><span>right wrist camera</span><span class="detail">each wrist watches its own hand work</span></div>
+  </div>
+  <div class="punch mono">→ three cameras, one kitchen run, one moment — plus its joint angles, read as text tokens.</div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">footage © Physical Intelligence · pi.website/blog/pi05</span>
+    <span class="idx"><b>J·04</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·SUB · high-level step (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-sub">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">First, it writes the next step <b>in words</b></div>
+  <div class="body" style="flex-direction:column; gap:16px;">
+    <div class="mount" style="width:100%; flex:1.4;">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/pi05_fig2_filmstrip.png" alt="pi0.5 kitchen cleaning film strip with predicted subtasks"></div>
+      <div class="cap"><b>FIG</b> — one real run, full width: under each frame, the subtask the model wrote for itself · π0.5 paper, Fig 2</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+      <div class="cardK" style="padding:14px 18px;"><p style="font-size:15.5px; color:#4a3a30;">Given “clean the kitchen”, it first outputs text: <b style="color:#26120a;">“put the dishes in the sink”</b>, then “pick up the plate”.</p></div>
+      <div class="cardK" style="padding:14px 18px;"><p style="font-size:15.5px; color:#4a3a30;">A 10–15 minute chore is too long for pure reflexes. Writing the next step keeps it on track.</p></div>
+      <div class="cardK" style="padding:14px 18px;"><p style="font-size:15.5px; color:#4a3a30;">Its own subtask choices scored <b style="color:#26120a;">better than a human expert</b> picking subtasks for it.</p></div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — arXiv:2504.16054, Fig 2 &amp; Fig 13 (high-level ablations)</span>
+    <span class="idx"><b>J·05</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·WEB · common sense from the internet (paper, split) ===== -->
+<section class="slide sl-paper a-split" id="j-web">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Its common sense comes from <b>the internet</b></div>
+  <div class="body">
+    <div class="left">
+      <ul class="k-list">
+        <li>In the kitchen it tells a plate from a sponge without being told. That knowledge is not in the robot data.</li>
+        <li>PI tested this with odd requests: “pick up the sunscreen.” It works, though <b>no robot ever touched sunscreen</b> in training. The words came from web pretraining.</li>
+        <li>Take the web data away and performance on unfamiliar objects drops from <b>~94% to ~74%</b>.</li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="mount">
+        <div class="mbox"><img class="fit" src="assets/collected/pi/pi05_multimodal_web_data.jpg" alt="multimodal web data co-training example"></div>
+        <div class="cap"><b>FIG</b> — a web-data training example beside robot data · Physical Intelligence</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 ablations — arXiv:2504.16054 · OOD figures read from pi.website/blog/pi05 charts</span>
+    <span class="idx"><b>J·06</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·CHUNK · action chunk + scrubber (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-chunk">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Then words become an <b>action chunk</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/pi/pi05_dishes_in_sink_5x.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="scrub">
+        <div class="ticks">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="head"></div>
+        </div>
+        <div class="lab"><span>step 1</span><span>one chunk = 50 steps = 1 second of motion</span><span>step 50</span></div>
+        <div class="nums">-1.70 · 1.25 · 3.14 · 1.42 · 0.88 · … 18–19 targets per step, 50 Hz</div>
+      </div>
+      <div class="cap"><b>VID</b> — dishes into the sink, 5× · © Physical Intelligence · chunking idea: ACT, Zhao et al.</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>A 300M-parameter “action expert” expands the subtask into <b>50 timesteps at once</b>.</li>
+        <li>Each step is 18–19 numbers: targets for both arms, grippers, torso, base.</li>
+        <li>Predict one second, execute it, look again, predict the next.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">action chunking — ACT, arXiv:2304.13705 · π0.5 flow-matching action expert — arXiv:2504.16054</span>
+    <span class="idx"><b>J·07</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·E2E · end to end (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="j-e2e">
+  <div class="bleed">
+    <video src="assets/collected/pi/pi05_training_inference_explainer.mp4" muted loop playsinline preload="none" data-start="16" style="object-fit:contain; background:#14100d;"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">J·08 · JOURNEY</div>
+  <div class="cinecap"><span class="tag">ONE MODEL</span><span class="txt">prompt → subtask → joint angles. No motion planner, no collision checker in between.</span></div>
+  <div class="cinecred">animation © Physical Intelligence · pi.website/blog/pi05</div>
+</section>
+
+<!-- ===== J·EMBODY · numbers become motion (paper, split) ===== -->
+<section class="slide sl-paper a-split" id="j-embody">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Then the <b>body</b> takes over</div>
+  <div class="body">
+    <div class="left">
+      <ul class="k-list">
+        <li>The numbers are joint <b>targets</b>, not motion. Each joint closes its own gap.</li>
+        <li>An <b>encoder</b> measures the real angle; a <b>PD controller</b> compares it to the target, thousands of times per second.</li>
+        <li>The controller drives current into the <b>motor</b>; a gearbox turns it into torque.</li>
+        <li>Grippers are one motor each; the base turns velocity targets into wheel speeds.</li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="mount" style="flex:1">
+        <div class="mbox" style="background:#fff; display:flex; align-items:center;">
+          <svg viewBox="0 0 560 168" style="width:100%; height:auto;" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              .cbox { fill:#fff; stroke:#e8d3c6; stroke-width:2; rx:14; }
+              .clab { font:600 15px Outfit, Archivo, sans-serif; fill:#26120a; }
+              .csub { font:11px "IBM Plex Mono", monospace; fill:#a08d82; }
+              .cwire { stroke:#fd5f32; stroke-width:3; fill:none; stroke-dasharray:8 7; animation: flow 1.1s linear infinite; }
+              .cback { stroke:#a08d82; stroke-width:2.5; fill:none; stroke-dasharray:3 6; animation: flow 1.6s linear infinite reverse; }
+              @keyframes flow { to { stroke-dashoffset:-15; } }
+            </style>
+            <rect class="cbox" x="10" y="30" width="118" height="62" rx="14"/>
+            <text class="clab" x="24" y="57">target</text><text class="csub" x="24" y="76">from the chunk</text>
+            <rect class="cbox" x="170" y="30" width="118" height="62" rx="14"/>
+            <text class="clab" x="184" y="57">PD control</text><text class="csub" x="184" y="76">gap → current</text>
+            <rect class="cbox" x="330" y="30" width="100" height="62" rx="14"/>
+            <text class="clab" x="344" y="57">motor</text><text class="csub" x="344" y="76">+ gearbox</text>
+            <rect class="cbox" x="462" y="30" width="88" height="62" rx="14"/>
+            <text class="clab" x="476" y="57">joint</text><text class="csub" x="476" y="76">moves</text>
+            <path class="cwire" d="M128 61 H170"/><path class="cwire" d="M288 61 H330"/><path class="cwire" d="M430 61 H462"/>
+            <path class="cback" d="M506 92 V130 H229 V92"/>
+            <text class="csub" x="130" y="152">encoder reads the real angle back, thousands of times a second</text>
+          </svg>
+        </div>
+        <div class="cap"><b>FIG</b> — one joint's control loop: PD tracking, as π0.5 uses (no extra planning below the network)</div>
+      </div>
+      <div class="mount">
+        <div class="mbox" style="background:#fff; display:flex; align-items:center; min-height:120px;">
+          <svg viewBox="0 0 560 150" style="width:100%; height:auto;" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              .al { stroke:#26120a; stroke-width:10; stroke-linecap:round; }
+              .ag { stroke:#e8d3c6; stroke-width:10; stroke-linecap:round; stroke-dasharray:2 14; }
+              .aj { fill:#fff; stroke:#fd5f32; stroke-width:5; }
+              .at { font:11px "IBM Plex Mono", monospace; fill:#a08d82; }
+              .sw { transform-origin: 300px 108px; animation: reach 2.6s ease-in-out infinite alternate; }
+              @keyframes reach { from { transform: rotate(34deg); } to { transform: rotate(-6deg); } }
+            </style>
+            <line class="al" x1="180" y1="108" x2="300" y2="108"/>
+            <line class="ag" x1="300" y1="108" x2="418" y2="42"/>
+            <g class="sw"><line class="al" x1="300" y1="108" x2="418" y2="42"/><circle class="aj" cx="418" cy="42" r="9"/></g>
+            <circle class="aj" cx="180" cy="108" r="11"/>
+            <circle class="aj" cx="300" cy="108" r="11"/>
+            <text class="at" x="164" y="138">joint 1</text>
+            <text class="at" x="286" y="138">joint 2 — chasing its target</text>
+            <text class="at" x="420" y="24">target pose (dotted)</text>
+          </svg>
+        </div>
+        <div class="cap"><b>FIG</b> — the same idea on an articulated arm: each joint swings until it matches its target angle</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — arXiv:2504.16054: “targets are tracked with simple PD controllers, without any additional trajectory planning or collision detection”</span>
+    <span class="idx"><b>J·09</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·PLAY · playable model (paper, figure mount + live iframe) ===== -->
+<section class="slide sl-paper a-fig" id="j-play">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Try the joints <b>yourself</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox" style="position:relative;">
+        <canvas id="panda-gl" style="width:100%; height:100%; display:block;"></canvas>
+        <span id="panda-ro" class="mono" style="position:absolute; right:12px; bottom:10px; font-size:10px; color:#cbb8aa;"></span>
+      </div>
+      <div class="cap"><b>3D · LIVE</b> — a real Franka Panda, rendered in this slide: move the cursor and the hand follows, click the canvas to grip · franka_description (Apache-2.0)</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Every number in the action chunk is one of these joints. This arm has seven.</li>
+        <li>Move your cursor and the hand follows; the elbow finds its own path. That path is what the numbers encode.</li>
+        <li>In the experience session you'll drive our real ALOHA the same way.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">arm mesh — frankaemika/franka_description (Apache-2.0) · rendered in three.js, local embed</span>
+    <span class="idx"><b>J·10</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·CAPS · lead page for the capability clips (paper) ===== -->
+<section class="slide sl-paper a-tax" id="j-caps">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Four things today's models can already do</div>
+  <div class="cards" style="grid-template-columns:repeat(4,1fr);">
+    <div class="cardK"><span class="tag">CLIP · 1</span><h3>Recover</h3><p>Someone undoes its work mid-task. It looks again and retries.</p><p class="more">π0.5 · the closed loop at work</p></div>
+    <div class="cardK"><span class="tag">CLIP · 2</span><h3>Remember</h3><p>It keeps track of what already happened, up to 15 minutes back.</p><p class="more">MEM, Mar 2026</p></div>
+    <div class="cardK"><span class="tag">CLIP · 3</span><h3>Practice</h3><p>It learns from its own attempts, without new demonstrations.</p><p class="more">π*0.6 + RECAP, Nov 2025</p></div>
+    <div class="cardK"><span class="tag">CLIP · 4</span><h3>Carry over</h3><p>A skill learned on one robot works on another.</p><p class="more">π0.7, Apr 2026</p></div>
+  </div>
+  <div class="kpirow"><span class="l">One clip for each, next. All real footage, all published by Physical Intelligence.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">pi.website — blog/pi05 · research/memory · blog/pistar06 · blog/pi07</span>
+    <span class="idx"><b>J·11</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·LOOP · perturbation (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="j-loop">
+  <div class="bleed">
+    <video src="assets/collected/pi/pi05_messing_dishes_in_sink_10x.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">J·12 · JOURNEY</div>
+  <div class="cinecap"><span class="tag">THE LOOP</span><span class="txt">someone keeps knocking the dishes away — it looks again and retries · 10×</span></div>
+  <div class="cinecred">footage © Physical Intelligence · pi.website/blog/pi05 (failure clips are published too)</div>
+</section>
+
+<!-- ===== J·MEM · since then: memory (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="j-mem">
+  <div class="bleed">
+    <video src="assets/collected/pi/mem_grilled_cheese.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">J·13 · SINCE π0.5 — 1/3</div>
+  <div class="cinecap"><span class="tag">MEMORY</span><span class="txt">MEM keeps up to 15 minutes of context — and changes plan after a failure instead of repeating it</span></div>
+  <div class="cinecred">MEM, Mar 2026 · © Physical Intelligence · pi.website/research/memory</div>
+</section>
+
+<!-- ===== J·RECAP · since then: experience (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="j-recap">
+  <div class="bleed">
+    <video src="assets/collected/pi/recap_cafe_100x.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">J·14 · SINCE π0.5 — 2/3</div>
+  <div class="cinecap"><span class="tag">PRACTICE</span><span class="txt">π*0.6 learns from its own attempts — espresso in a real cafe, 5:30 to 23:30, at 100×</span></div>
+  <div class="cinecred">π*0.6 + RECAP, Nov 2025 · © Physical Intelligence · pi.website/blog/pistar06</div>
+</section>
+
+<!-- ===== J·PI07 · since then: transfer (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="j-pi07">
+  <div class="bleed">
+    <video src="assets/collected/pi/pi07_ur5_shirt_folding.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">J·15 · SINCE π0.5 — 3/3</div>
+  <div class="cinecap"><span class="tag">TRANSFER</span><span class="txt">π0.7 folds laundry on a robot that had no laundry training data at all</span></div>
+  <div class="cinecred">π0.7, Apr 2026 · © Physical Intelligence · pi.website/blog/pi07</div>
+</section>
+
+<!-- ===== J·CIRC · the circuit (paper) ===== -->
+<section class="slide sl-paper a-circ" id="j-circ">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · The journey</div>
+  <div class="k-h2">Every system here is the <b>same loop</b></div>
+  <div class="ringwrap">
+    <svg viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .rnode { fill:#fff; stroke:#f3e2d8; stroke-width:2; }
+        .rlab { font:600 21px Outfit, Archivo, sans-serif; fill:#26120a; text-anchor:middle; }
+        .rsub { font:12px "IBM Plex Mono", monospace; fill:#a08d82; text-anchor:middle; }
+        .rarc { stroke:#fd5f32; stroke-width:4; fill:none; stroke-linecap:round; }
+        .rpulse { stroke:#ffd2c2; stroke-width:4; fill:none; stroke-linecap:round; stroke-dasharray: 30 999; animation: orbit 3.2s linear infinite; }
+        @keyframes orbit { to { stroke-dashoffset: -1029; } }
+        .rback { stroke:#a08d82; stroke-width:2.5; fill:none; stroke-dasharray:4 7; }
+        .rblab { font:12.5px "IBM Plex Mono", monospace; fill:#a08d82; text-anchor:middle; }
+      </style>
+      <path id="ring" class="rarc" d="M330 58 A 172 142 0 1 1 329.9 58" />
+      <path class="rpulse" d="M330 58 A 172 142 0 1 1 329.9 58" />
+      <g>
+        <rect class="rnode" x="245" y="18" width="170" height="76" rx="18"/>
+        <text class="rlab" x="330" y="52">policy</text><text class="rsub" x="330" y="74">decides</text>
+      </g>
+      <g>
+        <rect class="rnode" x="470" y="270" width="180" height="76" rx="18"/>
+        <text class="rlab" x="560" y="304">embodiment</text><text class="rsub" x="560" y="326">the body executes</text>
+      </g>
+      <g>
+        <rect class="rnode" x="10" y="270" width="180" height="76" rx="18"/>
+        <text class="rlab" x="100" y="304">environment</text><text class="rsub" x="100" y="326">the world changes</text>
+      </g>
+      <text class="rblab" x="330" y="238">observations flow back</text>
+    </svg>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>J·16</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·POL · choice 1: policy (paper, taxonomy) ===== -->
+<section class="slide sl-paper a-tax" id="j-pol">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · Taxonomy · 1 of 3</div>
+  <div class="k-h2">The <b>policy model</b></div>
+  <div class="cards c3">
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<rect class="mb" x="4" y="14" width="66" height="28" rx="9"/><text class="mf" x="14" y="32">see+read</text>
+<rect class="mb" x="118" y="14" width="64" height="28" rx="9"/><text class="mf" x="126" y="32">one net</text>
+<rect class="mb" x="230" y="14" width="62" height="28" rx="9"/><text class="mf" x="244" y="32">move</text>
+<path class="ma" d="M70 28 H118"/><path class="ma" d="M182 28 H230"/></svg><span class="tag">POLICY · A</span><h3>VLA</h3><p>One model, images + language in, motor actions out. π0.5 is this.</p><p class="more">also RT-2, OpenVLA, GR00T. The mainstream shape right now.</p></div>
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<rect class="mb" x="4" y="14" width="52" height="28" rx="9"/><text class="mf" x="16" y="32">see</text>
+<rect class="mb" x="104" y="14" width="72" height="28" rx="9"/><text class="mf" x="110" y="32">predict 3×</text>
+<rect class="mb" x="232" y="14" width="62" height="28" rx="9"/><text class="mf" x="240" y="32">pick 1</text>
+<path class="ma" d="M56 28 H104"/>
+<path class="mb" d="M176 20 C 200 12, 210 12, 232 20"/><path class="ma" d="M176 28 H232"/><path class="mb" d="M176 36 C 200 44, 210 44, 232 36"/></svg><span class="tag">POLICY · B</span><h3>World action model</h3><p>Predict what happens next in the world, act from the prediction. The road our TouchScale research takes.</p><p class="more">learn physics first, choose actions against the prediction</p></div>
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<rect class="mb" x="4" y="14" width="58" height="28" rx="9"/><text class="mf" x="16" y="32">plan</text>
+<rect class="mb" x="110" y="14" width="72" height="28" rx="9"/><text class="mf" x="118" y="32">call tool</text>
+<rect class="mb" x="230" y="14" width="62" height="28" rx="9"/><text class="mf" x="238" y="32">verify</text>
+<path class="ma" d="M62 28 H110"/><path class="ma" d="M182 28 H230"/>
+<path class="mb" d="M261 42 V 52 H 33 V 42"/><text class="mf" x="118" y="52">loop</text></svg><span class="tag">POLICY · C</span><h3>Agentic planner</h3><p>An LLM agent runs the robot like a coding agent runs a computer: plan in text, call tools, verify in the world. Example: ETA.</p><p class="more">in ETA, VLAs get demoted to tools inside the agent loop</p></div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">ETA: A New Agentic Paradigm for Embodied Tasks — OpenMOSS · arXiv:2608.03924</span>
+    <span class="idx"><b>J·17</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·POL-VLA · policy detail: VLA (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-pol-vla">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What decides · VLA</div>
+  <div class="k-h2">VLA — one network, <b>images to actions</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/pi05_fig3_model_overview.png" alt="pi0.5 model overview"></div>
+      <div class="cap"><b>FIG</b> — π0.5's architecture: a web-pretrained VLM with an action head bolted on · paper Fig 3</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Start from a vision-language model that already understands images and text. Attach an action output. Train on demonstrations.</li>
+        <li>This is why it can know “sunscreen”: the language backbone arrives <b>pre-educated by the internet</b>.</li>
+        <li>π0.5, RT-2, OpenVLA, GR00T: all this shape. The mainstream bet.</li>
+        <li>The cost: it is a black box. When it fails mid-task, there is no plan to inspect.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 — arXiv:2504.16054 · RT-2 — DeepMind 2023 · OpenVLA — Stanford 2024</span>
+    <span class="idx"><b>J·18</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·POL-WAM · policy detail: WAM (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-pol-wam">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What decides · World action model</div>
+  <div class="k-h2">World action model — <b>predict, then act</b></div>
+  <div class="body">
+    <div style="width:58%; display:flex; flex-direction:column; gap:14px; min-height:0;">
+      <div class="mount" style="flex:1;">
+        <div class="mbox"><img class="fit" src="assets/collected/papers/cosmos2501_bridge_action_pred_vs_gt.png" alt="Cosmos: ground-truth robot frames vs predicted frames"></div>
+        <div class="cap"><b>FIG</b> — real robot footage vs the model's prediction · NVIDIA Cosmos</div>
+      </div>
+      <div class="mount" style="flex:1;">
+        <div class="mbox"><img class="fit" src="assets/collected/papers/dreamzero2026_video_action_prediction_fig2.png" alt="DreamZero predicted video and action frames"></div>
+        <div class="cap"><b>FIG</b> — video and action predicted together · DreamZero</div>
+      </div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Learn physics first: a model that predicts what the world does next. Prediction trains on <b>video without action labels</b>, so the scarcest data is needed least.</li>
+        <li>Uses differ: pick among imagined futures, train the policy inside the imagination (Dreamer), or predict the scene's change and read the action out of it (DreamZero, Rhoda).</li>
+        <li>Our TouchScale takes this road with touch in the prediction. Section 4.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Cosmos — arXiv:2501.03575 · DreamZero — arXiv:2602.15922 · DreamGen — arXiv:2505.12705 · Dreamer — Hafner et al. · Rhoda — rhoda.ai</span>
+    <span class="idx"><b>J·19</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·POL-AGENT · policy detail: agentic (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-pol-agent">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What decides · Agentic planner</div>
+  <div class="k-h2">Agentic — <b>an LLM plans, tools execute</b></div>
+  <div class="body">
+    <div style="width:58%; display:flex; flex-direction:column; gap:14px; min-height:0;">
+      <div class="mount" style="flex:1;">
+        <div class="mbox"><img class="fit" src="assets/collected/papers/eta_fig1_planner_loop.png" alt="ETA planner-interface-world loop"></div>
+        <div class="cap"><b>FIG</b> — ETA's loop: planner proposes, interface checks, world reports back · ETA, Fig 1</div>
+      </div>
+      <div class="mount" style="flex:1;">
+        <div class="mbox"><video src="assets/collected/extra/anthropic_fetch_robodog_ball.mp4" muted loop playsinline preload="none"></video></div>
+        <div class="cap"><b>VID</b> — Project Fetch: a robodog fetching a ball, driven by code Claude wrote · red.anthropic.com</div>
+      </div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>An LLM plans in text and calls tools: look, locate, grasp, move. VLAs get demoted to tools inside the loop.</li>
+        <li>Its rule: <b>tool finished ≠ task done</b>. Success is checked in the world before the next step.</li>
+        <li>ETA's result: three tools plus a strong general LLM solved 70.8% of 130 simulated tasks on the first try, 90% within five.</li>
+        <li>The lever is the planner. Better general models make better robots, with no robot retraining.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">ETA — OpenMOSS, arXiv:2608.03924 (70.8% Pass@1 on LIBERO) · Anthropic, “Project Fetch: Can Claude train a robot dog?” — red.anthropic.com/2025/project-fetch</span>
+    <span class="idx"><b>J·20</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·LEARN · choice 2: learning (paper, taxonomy) ===== -->
+<section class="slide sl-paper a-tax" id="j-learn">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · Taxonomy · 2 of 3</div>
+  <div class="k-h2">The <b>training method</b></div>
+  <div class="cards c3">
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<path class="mb" d="M14 20 C 80 6, 180 6, 286 18" stroke-dasharray="5 5"/><text class="mf" x="14" y="14">teacher</text>
+<path class="ma" d="M14 38 C 80 24, 180 24, 286 34"/><text class="mf" x="14" y="52">copy</text></svg><span class="tag">LEARN · A</span><h3>Imitation</h3><p>Copy good human demonstrations, motion by motion.</p><p class="more">how ALOHA and π0.5 got their base skills</p></div>
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<text class="mf" x="4" y="14">web</text><text class="mf" x="4" y="32">humans</text><text class="mf" x="4" y="50">robots</text>
+<path class="ma" d="M62 10 C 130 10, 160 24, 218 26"/><path class="ma" d="M62 28 H218"/><path class="ma" d="M62 46 C 130 46, 160 32, 218 30"/>
+<rect class="mb" x="222" y="14" width="72" height="28" rx="9"/><text class="mf" x="230" y="32">one robot</text></svg><span class="tag">LEARN · B</span><h3>Transfer</h3><p>Borrow from human videos and from other robots' data.</p><p class="more">π0.5's co-training: web data plus other robots' experience</p></div>
+    <div class="cardK"><svg class="mini-flow" viewBox="0 0 300 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:52px; margin-bottom:10px;"><style>.mf{font:10px "IBM Plex Mono",monospace;fill:#a08d82;}.mb{fill:none;stroke:#e8d3c6;stroke-width:2;}.ma{stroke:#fd5f32;stroke-width:2.5;fill:none;stroke-dasharray:6 5;animation:mfw 1.2s linear infinite;}@keyframes mfw{to{stroke-dashoffset:-11;}}</style>
+<rect class="mb" x="40" y="14" width="52" height="28" rx="9"/><text class="mf" x="52" y="32">try</text>
+<rect class="mb" x="180" y="14" width="66" height="28" rx="9"/><text class="mf" x="188" y="32">score</text>
+<path class="ma" d="M92 22 C 130 14, 150 14, 180 22"/>
+<path class="ma" d="M180 36 C 150 46, 122 46, 92 36"/>
+<text class="mf" x="122" y="10">attempt</text><text class="mf" x="122" y="54">adjust</text></svg><span class="tag">LEARN · C</span><h3>Reinforcement</h3><p>Trial and error against a reward signal.</p><p class="more">RECAP's espresso robot, practicing on its own all day</p></div>
+  </div>
+  <div class="kpirow"><span class="l">Not exclusive: real systems mix all three.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 co-training — arXiv:2504.16054 · RECAP — pi.website/blog/pistar06</span>
+    <span class="idx"><b>J·21</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·LEARN-IMIT · learning detail: imitation (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-learn-imit">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · How it learns · Imitation</div>
+  <div class="k-h2">Imitation — <b>copy the demonstration</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/data_methods/mobile_aloha_teleop_restroom_10x.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="cap"><b>VID</b> — step one, visible: a person drives the robot through the task, and every motion is recorded · Mobile ALOHA teleop, 10×</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Step 1: a person demonstrates the task about 50 times, driving the robot by teleop.</li>
+        <li>Step 2: a network trains on the recordings — given what the cameras saw, output what the human did.</li>
+        <li>Step 3: the robot runs alone, reproducing the motions in slightly new conditions.</li>
+        <li>The limits: small errors drift into situations <b>no demonstration covered</b>, and the copy never beats the teacher.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Mobile ALOHA — Fu, Zhao et al. · ACT — arXiv:2304.13705 (~50 demos per skill)</span>
+    <span class="idx"><b>J·22</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·LEARN-TRANS · learning detail: transfer (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-learn-trans">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · How it learns · Transfer</div>
+  <div class="k-h2">Transfer — <b>borrow what others learned</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/egoscale_fig1_pull_figure.png" alt="EgoScale human-to-robot transfer"></div>
+      <div class="cap"><b>FIG</b> — human hands teach a robot hand: transfer across bodies · EgoScale, Fig 1</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Skills move across sources: from the web, from human video, from other robots' recordings.</li>
+        <li>π0.5's ablations show how much this carries. Remove other robots' data and success on unfamiliar scenes drops to roughly half. Remove multi-environment data and it drops to a third.</li>
+        <li>Most of a robot's competence can come from <b>experience that was never its own</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">π0.5 ablations — arXiv:2504.16054 (chart readings, approximate) · EgoScale — arXiv:2602.16710</span>
+    <span class="idx"><b>J·23</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·LEARN-RL · learning detail: RL (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-learn-rl">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · How it learns · Reinforcement</div>
+  <div class="k-h2">Reinforcement — <b>practice against a reward</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/extra/sim_genesis_clip.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="cap"><b>VID</b> — where most practice happens: a physics simulator (Genesis), where failing costs nothing · genesis-embodied-ai</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>No demonstration to copy. The robot tries, gets scored, and adjusts. The only method that can <b>pass the teacher</b>.</li>
+        <li>Simulation makes it affordable: thousands of virtual attempts at compute speed, then the policy moves to the real robot.</li>
+        <li>RECAP brought it to the real world: corrections plus self-practice, throughput <b>more than doubled</b>.</li>
+      </ul>
+      <div class="mount">
+        <div class="mbox" style="min-height:120px;"><video src="assets/collected/pi/recap_laundry_100x.mp4" muted loop playsinline preload="none"></video></div>
+        <div class="cap"><b>VID</b> — RECAP, practicing for real · © PI</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Genesis — genesis-embodied-ai.github.io · π*0.6 + RECAP — pi.website/blog/pistar06, Nov 2025</span>
+    <span class="idx"><b>J·24</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·DATA · choice 3: data (paper, taxonomy w/ photos) ===== -->
+<section class="slide sl-paper a-tax" id="j-data">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · Taxonomy · 3 of 3</div>
+  <div class="k-h2">The <b>training data</b></div>
+  <div class="cards c3">
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/data_methods/aloha_teleop_still.jpg" alt="ALOHA teleoperation rig"></div>
+      <span class="tag">DATA · A</span><h3>Teleop</h3><p>A person drives the robot; it records exactly what its own body did. Precise, expensive.</p><p class="more">exact robot-frame actions. Needs a robot and an operator per stream.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/data_methods/umi_in_the_wild_still.jpg" alt="UMI handheld grippers in the wild"></div>
+      <span class="tag">DATA · B</span><h3>UMI</h3><p>A handheld gripper: robot-style demonstrations collected without a robot.</p><p class="more">gripper plus camera; actions recovered from motion tracking</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/data_methods/ego_collection_generated.png" alt="person wearing a head-mounted camera doing a kitchen task"></div>
+      <span class="tag">DATA · C</span><h3>Egocentric</h3><p>First-person video of people just doing tasks. Cheapest and most abundant. Our specialty.</p><p class="more">hours pile up fast; mapping them to robot joints is the hard part</p>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">ALOHA — Zhao et al., arXiv:2304.13705 · UMI — Chi et al., umi-gripper.github.io · ego photo: generated illustration</span>
+    <span class="idx"><b>J·25</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·DATA-TELEOP · data detail: teleop (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-data-teleop">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What it learns from · Teleop</div>
+  <div class="k-h2">Teleop — <b>the robot records itself</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/data_methods/aloha_teleop_all.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="cap"><b>VID</b> — a person on the leader arms; the follower robot mirrors every move and records it · ALOHA, Zhao et al.</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Leader-follower rigs: a person moves small leader arms, the robot mirrors, and every joint angle gets logged.</li>
+        <li>The result is <b>exactly the data the policy needs</b>: robot body, robot frame, real physics.</li>
+        <li>The cost side: one operator, one robot, real time. This is the pyramid's scarce top layer, hour by hour.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">ALOHA — arXiv:2304.13705 · Mobile ALOHA — mobile-aloha.github.io</span>
+    <span class="idx"><b>J·26</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·DATA-UMI · data detail: UMI (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-data-umi">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What it learns from · UMI</div>
+  <div class="k-h2">UMI — <b>a gripper you carry around</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/data_methods/umi_in_the_wild_collection.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="cap"><b>VID</b> — three collectors with UMI grippers, gathering demonstrations outdoors · Chi et al.</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>No robot on site. A person carries the gripper and just does the task, anywhere.</li>
+        <li>The camera's motion is tracked, and the gripper's path is <b>reconstructed as if a robot had moved it</b>.</li>
+        <li>Collection speed goes up an order of magnitude; kitchens, shops and homes all become collection sites.</li>
+        <li>The gap: no joint readings, and a hand-carried gripper moves differently than an arm.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">UMI — Chi et al., umi-gripper.github.io · video: in-the-wild collection runs</span>
+    <span class="idx"><b>J·27</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·DATA-EGO · data detail: egocentric (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="j-data-ego">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · What it learns from · Egocentric</div>
+  <div class="k-h2">Egocentric — <b>people, just working</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img src="assets/collected/papers/egoscale_fig2a_data_collection.png" alt="EgoScale wearable capture"></div>
+      <div class="cap"><b>FIG</b> — wearable capture: cameras and gloves record ordinary work · EgoScale, Fig 2</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Head-mounted cameras, sometimes gloves for hand pose. People do their normal tasks; the footage is the data.</li>
+        <li>It scales like nothing else: hours accumulate <b>as a side effect of daily life</b>.</li>
+        <li>The hard part is the mapping. Human hands are not grippers, so every frame must be retargeted to robot joints. That step is where quality is won or lost.</li>
+        <li>This retargeting-and-QC work is our home ground. Section 4.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">EgoScale — arXiv:2602.16710 (MANUS gloves, keypoint retargeting) · Ego4D — ego4d-data.org</span>
+    <span class="idx"><b>J·28</b> · JOURNEY</span>
+  </div>
+</section>
+
+<!-- ===== J·BOARD · the board (paper) ===== -->
+<section class="slide sl-paper a-board" id="j-board">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 1 · Design choices</div>
+  <div class="k-h2">The whole design space, <b>one board</b></div>
+  <div class="cols">
+    <div class="col">
+      <h4>What decides</h4>
+      <div class="cell"><b>VLA</b> — one end-to-end model</div>
+      <div class="cell"><b>WAM</b> — predict, then act</div>
+      <div class="cell"><b>Agentic</b> — plan in text, call tools</div>
+    </div>
+    <div class="col">
+      <h4>How it learns</h4>
+      <div class="cell"><b>Imitation</b> — copy demonstrations</div>
+      <div class="cell"><b>Transfer</b> — borrow other data</div>
+      <div class="cell"><b>RL</b> — practice against reward</div>
+    </div>
+    <div class="col">
+      <h4>What it learns from</h4>
+      <div class="cell"><b>Teleop</b> — human drives robot</div>
+      <div class="cell"><b>UMI</b> — handheld gripper</div>
+      <div class="cell"><b>Egocentric</b> — head-worn camera</div>
+    </div>
+  </div>
+  <div class="legend mono">every team picks one path through this board. π0.5: VLA · imitation+transfer · teleop.</div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">taxonomy assembled from arXiv:2504.16054 · 2304.13705 · 2608.03924 · umi-gripper.github.io</span>
+    <span class="idx"><b>J·29</b> · JOURNEY</span>
+  </div>
+</section>
+<!-- ===== D2 · DIVIDER (orange) ===== -->
+<section class="slide sl-orange a-div" id="d2">
+  <div class="wm-layer half-r"></div>
+  <div class="num mono">SECTION 02 / 04</div>
+  <h1>Old dream, new method</h1>
+  <div class="sub">People have wanted working machines for 2,400 years. What changed is the method.</div>
+  <div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><span class="mono">JOURNEY · NARRATIVE · MARKET · ABAKA</span></div>
+</section>
+
+<!-- ===== N·TIME · timeline (paper) ===== -->
+<section class="slide sl-paper a-time" id="n-time">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · Old dream</div>
+  <div class="k-h2">2,400 years of wanting this</div>
+  <div class="track"><div class="rail"><div class="nodes">
+    <div class="node">
+      <div class="pic"><img src="assets/collected/history/talos_vase_detail.jpg" alt="Talos on a Greek vase"></div>
+      <i></i><div class="yr mono">~400 BC</div><h4>Talos</h4><p>A bronze guardian, painted on a Greek vase</p>
+    </div>
+    <div class="node">
+      <div class="pic"><img src="assets/collected/history/leonardo_mechanical_knight.jpg" alt="Leonardo's mechanical knight"></div>
+      <i></i><div class="yr mono">1495</div><h4>Da Vinci</h4><p>A mechanical knight, gears and pulleys</p>
+    </div>
+    <div class="node">
+      <div class="pic"><img src="assets/collected/history/jaquet_droz_writer.jpg" alt="Jaquet-Droz Writer automaton"></div>
+      <i></i><div class="yr mono">1774</div><h4>The Writer</h4><p>An automaton that writes with a quill</p>
+    </div>
+    <div class="node">
+      <div class="pic"><img src="assets/collected/history/rur_theatre_guild_act3_1922.jpg" alt="R.U.R. stage production"></div>
+      <i></i><div class="yr mono">1921</div><h4>R.U.R.</h4><p>The word “robot” is born on stage</p>
+    </div>
+    <div class="node">
+      <div class="pic"><img src="assets/collected/oldera/bd_atlas_parkour_midstep.png" alt="Atlas parkour"></div>
+      <i></i><div class="yr mono">2017</div><h4>Atlas</h4><p>Backflips, engineered move by move</p>
+    </div>
+    <div class="node hot">
+      <div class="pic"><img src="assets/collected/pi/pi05_subtask_command.jpg" alt="pi0.5 subtask"></div>
+      <i></i><div class="yr mono">2025</div><h4>π0.5</h4><p>Learned, general, in a stranger's kitchen</p>
+    </div>
+  </div></div></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">images — Wikimedia Commons (PD / CC BY-SA, ArchaiOptix a.o.) · © Boston Dynamics · © Physical Intelligence</span>
+    <span class="idx"><b>N·01</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·QUOTE · robota (paper) ===== -->
+<section class="slide sl-paper a-quote" id="n-quote">
+  <div class="wm-layer half-r"></div>
+  <div class="mark">“</div>
+  <blockquote>Robot, from the Czech <i>robota</i>: forced labor.</blockquote>
+  <div class="attr mono"><b>R.U.R.</b> — Karel Čapek, 1921 · from day one, the word meant a machine that works for us</div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Karel Čapek, R.U.R. (Rossum's Universal Robots), 1920/21</span>
+    <span class="idx"><b>N·02</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·WALL · video wall (cinema) ===== -->
+<section class="slide sl-dark a-wall" id="n-wall">
+  <div class="wm-layer"></div>
+  <h2>The old era could <b>dance</b></h2>
+  <div class="tiles">
+    <div class="tile"><video src="assets/collected/oldera/bd_atlas_whats_new_backflip_2017.mp4" muted loop playsinline preload="none"></video><span>Atlas — backflip · 2017</span><span class="detail">the clip that made hydraulic Atlas famous</span></div>
+    <div class="tile"><video src="assets/collected/oldera/bd_atlas_partners_in_parkour_2021.mp4" muted loop playsinline preload="none"></video><span>Atlas — parkour · 2021</span><span class="detail">two robots, one rehearsed course</span></div>
+    <div class="tile"><video src="assets/collected/oldera/bd_do_you_love_me_dancing_2020.mp4" muted loop playsinline preload="none"></video><span>“Do You Love Me?” · 2020</span><span class="detail">Atlas, Spot and Handle, choreographed to the song</span></div>
+    <div class="tile"><video src="assets/collected/oldera/unitree_g1_kungfu.mp4" muted loop playsinline preload="none"></video><span>Unitree G1 — kung-fu · 2025</span><span class="detail">the same era's moves, on a $16k robot</span></div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">clips © Boston Dynamics · © Unitree (YouTube)</span>
+    <span class="idx"><b>N·03</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·HOW · templates (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-how">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The old method</div>
+  <div class="k-h2">Behind the stunts: <b>templates</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img src="assets/collected/oldera/bd_atlas_flip_trajectory_sim.jpg" alt="Atlas flip trajectory optimization in simulation"></div>
+      <div class="cap"><b>FIG</b> — the backflip existed in simulation first, as an optimized trajectory · © Boston Dynamics</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Boston Dynamics, in their own blog: each parkour move <b>“is derived from a template created ahead of time using trajectory optimization.”</b></li>
+        <li>The toolkit was dynamics models, control theory, and optimization.</li>
+        <li>Every new skill meant <b>a new engineering project</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Boston Dynamics — “Picking Up Momentum” · bostondynamics.com/blog/picking-up-momentum</span>
+    <span class="idx"><b>N·04</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·MATH · the old method, written out (paper) ===== -->
+<section class="slide sl-paper" id="n-math">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The old method</div>
+  <div class="k-h2">What that engineering <b>looked like</b></div>
+  <div class="eqgrid">
+    <div class="eqcard">
+      <div class="eq">M(q)q̈ + C(q,q̇)q̇ + g(q) = τ + Jᵀf</div>
+      <div class="eqname">rigid-body dynamics — a hand-built model of the machine</div>
+    </div>
+    <div class="eqcard">
+      <div class="eq">min<sub>u</sub> Σₜ ‖xₜ−xₜ*‖²<sub>Q</sub> + ‖uₜ‖²<sub>R</sub>&nbsp;&nbsp;s.t.&nbsp;xₜ₊₁ = f(xₜ,uₜ)</div>
+      <div class="eqname">model-predictive control — re-solved many times a second</div>
+    </div>
+    <div class="eqcard">
+      <div class="eq">x<sub>ZMP</sub> = x<sub>c</sub> − (z<sub>c</sub>/g)·ẍ<sub>c</sub> ∈ support polygon</div>
+      <div class="eqname">balance condition — keep this point inside the feet, always</div>
+    </div>
+    <div class="eqcard">
+      <div class="eq">‖f<sub>tangential</sub>‖ ≤ μ·f<sub>normal</sub></div>
+      <div class="eqname">friction cone — one constraint per contact, per instant</div>
+    </div>
+  </div>
+  <div class="kpirow" style="display:flex; align-items:baseline; gap:16px; margin-top:20px;"><span class="l mono" style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:#a08d82;">this, per robot, per behavior, tuned by hand — the point is not to read it. the point is that someone had to write it.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">standard formulations — Featherstone, rigid-body dynamics · Kajita et al., ZMP walking · MPC per Boston Dynamics' own descriptions</span>
+    <span class="idx"><b>N·05</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·TURN · even BD switched (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="n-turn">
+  <div class="bleed">
+    <video src="assets/collected/oldera/bd_tri_end_to_end_neural_atlas_2025.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">N·06 · NARRATIVE</div>
+  <div class="cinecap"><span class="tag">2025</span><span class="txt">one learned network now runs Atlas, hands and feet together, built with Toyota Research Institute</span></div>
+  <div class="cinecred">© Boston Dynamics × TRI · “Getting a Leg up with End-to-end Neural Networks”</div>
+</section>
+
+<!-- ===== N·DEF · what a narrative is (paper, statement) ===== -->
+<section class="slide sl-paper a-say" id="n-def">
+  <div class="wm-layer half-r"></div>
+  <div class="k-eyebrow">Section 2 · The new narrative</div>
+  <div class="line" style="font-size:44px; max-width:30ch;">The narrative shifts: from <b>hand-built control</b> to <b>learned generalist models</b>.</div>
+  <div class="subline">A narrative is the consensus a field and its investors hold together — an agreement, not a law of nature. Here is how the new one formed.</div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>N·07</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·AV · proof 1: self-driving (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-av">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The new narrative</div>
+  <div class="k-h2">The first pioneer: <b>self-driving</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img src="assets/collected/oldera/waymo_jaguar_ipace_sf.jpg" alt="Waymo robotaxi in San Francisco"></div>
+      <div class="cap"><b>IMG</b> — a driverless Waymo in San Francisco · photo Dllu, CC BY 4.0</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>A machine can act in the messy physical world, safely enough to sell rides.</li>
+        <li>What made it work was <b>data at fleet scale</b>, collected for a decade.</li>
+        <li>So the control half of the robotics problem has a working example.</li>
+      </ul>
+      <div class="mount">
+        <div class="mbox" style="min-height:110px;"><img src="assets/collected/extra/tesla_fsd_screen.jpg" alt="Tesla Autopilot driving visualization"></div>
+        <div class="cap"><b>IMG</b> — the car's own view of the road, rendered live · photo Isnoop, CC BY-SA 4.0</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>N·08</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·GPT · proof 2: GPT (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-gpt">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The new narrative</div>
+  <div class="k-h2">The second pioneer: <b>GPT</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/kaplan2020_scaling_fig1.png" alt="Kaplan 2020 scaling laws figure"></div>
+      <div class="cap"><b>FIG</b> — the scaling laws, as published: loss falls in straight lines with compute, data, and model size · Kaplan et al. 2020, Fig 1</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>One general model, trained on enough data, beat the specialist systems in language.</li>
+        <li>Behind it, a measured law: loss falls <b>predictably</b> as models, data and compute grow.</li>
+        <li>The lesson people took: scale wins. So the learning half of the robotics problem has a working example too.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Kaplan et al., “Scaling Laws for Neural Language Models”, arXiv:2001.08361</span>
+    <span class="idx"><b>N·09</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·BET · the bet (paper, quote) ===== -->
+<section class="slide sl-paper a-quote" id="n-bet">
+  <div class="wm-layer half-r"></div>
+  <div class="mark">“</div>
+  <blockquote>Scaling worked there. It should work for robots too.</blockquote>
+  <div class="attr mono"><b>the bet behind the funding wave</b> · a belief, not a result. whether scaling laws hold for robots is still open.</div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>N·10</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·PYR · Jim Fan's pyramid, overview (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-pyr">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The consensus · Jim Fan's pyramid</div>
+  <div class="k-h2">What do you feed a robot model? <b>A pyramid.</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/groot_n1_fig1_data_pyramid.png" alt="GR00T data pyramid"></div>
+      <div class="cap"><b>FIG</b> — the data pyramid · NVIDIA GR00T N1, Fig 1 · Jim Fan's framing</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>NVIDIA's Jim Fan drew the field's standard picture of the data problem.</li>
+        <li>Three layers, read bottom to top. The next three slides take them one at a time.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">GR00T N1 — arXiv:2503.14734 · Jim Fan, “Robots Thinking Fast and Slow”, Sequoia Training Data podcast</span>
+    <span class="idx"><b>N·11</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·PYR-WEB · layer 1 (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-pyr-web">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · Pyramid · layer 1 of 3</div>
+  <div class="k-h2">The base: <b>web data</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img src="assets/collected/data_methods/ego4d_collage.jpg" alt="grid of first-person video frames"></div>
+      <div class="cap"><b>FIG</b> — first-person video frames from Ego4D: cooking, repair, shopping · Meta AI</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Billions of hours of human video and text, already on the internet.</li>
+        <li>It teaches what objects are and what tasks look like.</li>
+        <li>The catch: <b>none of it contains robot actions</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Ego4D — ego4d-data.org · GR00T N1 — arXiv:2503.14734</span>
+    <span class="idx"><b>N·12</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·PYR-SIM · layer 2 (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-pyr-sim">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · Pyramid · layer 2 of 3</div>
+  <div class="k-h2">The middle: <b>simulation</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/dreamgen2025_neural_trajectories_fig12.png" alt="DreamGen generated robot training videos"></div>
+      <div class="cap"><b>FIG</b> — synthetic robot data: training videos generated by a model, not recorded · DreamGen, NVIDIA</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Generate any scene, any object, any failure, in parallel.</li>
+        <li>Jim Fan measures it in <b>“tokens per GPU-day”</b>: data at compute speed.</li>
+        <li>The catch: simulation is never exactly the real world.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Jim Fan — Sequoia Training Data podcast · DreamGen — arXiv:2505.12705 · GR00T N1 — arXiv:2503.14734</span>
+    <span class="idx"><b>N·13</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·PYR-REAL · layer 3 (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-pyr-real">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · Pyramid · layer 3 of 3</div>
+  <div class="k-h2">The top: <b>real robot data</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><video src="assets/collected/data_methods/aloha_teleop_all.mp4" muted loop playsinline preload="none"></video></div>
+      <div class="cap"><b>VID</b> — teleoperated demonstrations on ALOHA · Zhao et al., Stanford</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>Exactly what deployment needs: real robot, real physics, real actions.</li>
+        <li>Jim Fan calls the limit the <b>“24-hour robot day”</b>: one robot can log at most 24 robot-hours a day, and it needs an operator.</li>
+        <li>That scarcity at the top is <b>why a robot-data market exists</b>. Hold that thought.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Jim Fan — Sequoia Training Data podcast · ALOHA — Zhao et al., arXiv:2304.13705</span>
+    <span class="idx"><b>N·14</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·EGO-DATA · EgoScale, the data (cinema) ===== -->
+<section class="slide sl-dark a-cine" id="n-ego-data">
+  <div class="bleed">
+    <video src="assets/collected/papers/egoscale_20khrs_montage.mp4" muted loop playsinline preload="none"></video>
+    <div class="shade"></div>
+  </div>
+  <div class="wm-layer half-l"></div>
+  <div class="cineidx mono">N·15 · EGOSCALE — 1/2</div>
+  <div class="cinecap"><span class="tag">THE DATA</span><span class="txt">people wearing cameras, doing everyday chores. This footage is the training set.</span></div>
+  <div class="cinecred">EgoScale · © NVIDIA GEAR · research.nvidia.com/labs/gear/egoscale</div>
+</section>
+
+<!-- ===== N·EGO-LAW · EgoScale, the law (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-ego-law">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · EgoScale · 2 of 2</div>
+  <div class="k-h2">More hours, <b>predictably better</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/collected/papers/egoscale_fig5_scaling_law.svg" alt="EgoScale scaling law curve"></div>
+      <div class="cap"><b>FIG</b> — performance vs hours of human data, 1k to 20k · EgoScale, Fig 5</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>The dataset: <b>20,854 hours</b> of that first-person video, from 2,200 people across 9,869 scenes.</li>
+        <li>Robot skill rises log-linearly with the hours. Fit quality: <b>R² = 0.998</b>.</li>
+        <li>A measured scaling law for human-to-robot transfer. The strongest evidence the bet has.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">EgoScale — arXiv:2602.16710, Fig 5</span>
+    <span class="idx"><b>N·16</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·DEB-CURVES · Danfei 2: the curves (paper, figure mount) ===== -->
+<section class="slide sl-paper a-fig" id="n-deb-curves">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · The argument · Danfei Xu</div>
+  <div class="k-h2">Same bet, <b>different curves</b></div>
+  <div class="body">
+    <div class="mount">
+      <div class="mbox" style="background:#fff; display:flex; align-items:center;">
+        <svg viewBox="0 0 560 320" style="width:100%; height:auto;" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .ax { stroke:#e8d3c6; stroke-width:2; }
+            .axl { font:12px "IBM Plex Mono", monospace; fill:#a08d82; }
+            .cv { fill:none; stroke-width:4; stroke-linecap:round; stroke-dasharray:640; stroke-dashoffset:640; animation: draw 2.2s ease-out forwards; }
+            .cv.t { stroke:#a08d82; animation-delay:.2s; }
+            .cv.u { stroke:#fd9b7c; animation-delay:.7s; }
+            .cv.e { stroke:#fd5f32; animation-delay:1.2s; }
+            @keyframes draw { to { stroke-dashoffset:0; } }
+            .cl { font:600 13px "IBM Plex Mono", monospace; }
+          </style>
+          <line class="ax" x1="50" y1="270" x2="530" y2="270"/>
+          <line class="ax" x1="50" y1="270" x2="50" y2="30"/>
+          <text class="axl" x="440" y="292">data collected →</text>
+          <text class="axl" x="8" y="26">skill</text>
+          <path class="cv t" d="M50 240 C 140 150, 200 130, 520 118"/>
+          <path class="cv u" d="M50 258 C 180 200, 300 120, 520 72"/>
+          <path class="cv e" d="M50 266 C 220 240, 340 130, 520 42"/>
+          <text class="cl" x="452" y="112" fill="#a08d82">teleop</text>
+          <text class="cl" x="464" y="66" fill="#fd9b7c">UMI</text>
+          <text class="cl" x="440" y="36" fill="#fd5f32">egocentric</text>
+        </svg>
+      </div>
+      <div class="cap"><b>FIG</b> — his scaling curves, redrawn from the thread. Not to scale.</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>His point: the teleop, UMI and ego camps are all making <b>the same bet</b> — learn by copying demonstrations. What separates them is how their data piles up.</li>
+        <li>Teleop starts ahead: the data is exact. It also grows slowest and <b>flattens lowest</b>.</li>
+        <li>UMI and ego start rougher and keep climbing, because their data is easy to gather.</li>
+      </ul>
+      <div class="mount">
+        <div class="mbox" style="min-height:110px;"><img class="fit" src="assets/manual/danfeixu_4_scaling_curves.png" alt="Danfei Xu tweet with scaling curves"></div>
+        <div class="cap"><b>IMG</b> — his original post, for the record</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Danfei Xu — x.com/danfei_xu/status/2079192281932767542 · curves redrawn</span>
+    <span class="idx"><b>N·17</b> · NARRATIVE</span>
+  </div>
+</section>
+
+<!-- ===== N·OPEN · our view (paper, board callback) ===== -->
+<section class="slide sl-paper a-board" id="n-open">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 2 · Our view</div>
+  <div class="k-h2">Nothing is settled <b>yet</b></div>
+  <div class="cols">
+    <div class="col">
+      <h4>What decides</h4>
+      <div class="cell"><b>VLA</b><span class="q">?</span></div>
+      <div class="cell"><b>WAM</b><span class="q">?</span></div>
+      <div class="cell"><b>Agentic</b><span class="q">?</span></div>
+    </div>
+    <div class="col">
+      <h4>How it learns</h4>
+      <div class="cell"><b>Imitation</b><span class="q">?</span></div>
+      <div class="cell"><b>Transfer</b><span class="q">?</span></div>
+      <div class="cell"><b>RL</b><span class="q">?</span></div>
+    </div>
+    <div class="col">
+      <h4>What it learns from</h4>
+      <div class="cell"><b>Teleop</b><span class="q">?</span></div>
+      <div class="cell"><b>UMI</b><span class="q">?</span></div>
+      <div class="cell"><b>Egocentric</b><span class="q">?</span></div>
+    </div>
+  </div>
+  <div class="legend mono">the board from section 1, with honest marks. in a settled industry a newcomer has no chance. <b>in this one, every open cell is a chance, ours included.</b></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>N·18</b> · NARRATIVE</span>
+  </div>
+</section>
+<!-- ===== D3 · DIVIDER (orange) ===== -->
+<section class="slide sl-orange a-div" id="d3">
+  <div class="wm-layer half-r"></div>
+  <div class="num mono">SECTION 03 / 04</div>
+  <h1>The market</h1>
+  <div class="sub">Who is building the robots — and who feeds them data.</div>
+  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="mono">JOURNEY · NARRATIVE · MARKET · ABAKA</span></div>
+</section>
+
+<!-- ===== M·MAP · Bay Area map (paper, ken burns) ===== -->
+<section class="slide sl-paper" id="m-map">
+  <div class="wm-layer"></div>
+  <div class="body" style="display:flex; gap:28px; flex:1; min-height:0;">
+    <div style="width:24%; display:flex; flex-direction:column; justify-content:center; gap:18px;">
+      <div class="k-eyebrow">Section 3 · The market</div>
+      <div class="k-h2" style="font-size:38px;">Start in the <b>Bay Area</b></div>
+      <p style="font-size:16px; color:#4a3a30; line-height:1.5;">One region, roughly a thousand robotics companies. This map holds a slice of them.</p>
+      <p class="mono" style="font-size:11.5px; color:#a08d82;">Robotics maps by Lukas M. Ziegler</p>
+    </div>
+    <div class="mount" style="flex:1;">
+      <div class="mbox"><img src="assets/robotics_maps.jpeg" alt="Bay Area robotics company map" style="width:100%; height:100%; object-fit:contain; background:#fff;"></div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">Robotics maps by Lukas M. Ziegler (LinkedIn, 2026)</span>
+    <span class="idx"><b>M·01</b> · MARKET</span>
+  </div>
+</section>
+
+<!-- ===== M·BRAINS · model builders (paper, taxonomy ×5) ===== -->
+<section class="slide sl-paper a-tax" id="m-brains">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 3 · The market</div>
+  <div class="k-h2">Five betting on the <b>model</b></div>
+  <div class="cards c5">
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_physical_intelligence.png" alt="Physical Intelligence"><span class="fact">founded 2024 · Hausman, Levine, Finn · π0 → π0.5 → π0.7</span></div>
+      <span class="tag">MODELS</span><h3>Physical Intelligence</h3><p>π0.5, the system we just walked through.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_skild.png" alt="Skild AI"><span class="fact">CMU roots · trains one policy across quadrupeds, arms, humanoids</span></div>
+      <span class="tag">MODELS</span><h3>Skild AI</h3><p>One robot brain, trained across many robot bodies.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_rhoda.jpg" alt="Rhoda AI"><span class="fact">out of stealth Mar 2026 · $450M at ~$1.7B · learns from internet video</span></div>
+      <span class="tag">MODELS</span><h3>Rhoda AI</h3><p>Models trained on internet video. $450M Series A, 2026.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_genesis.png" alt="Genesis AI"><span class="fact">$105M seed, one of robotics' largest · GENE model + own dexterous hand</span></div>
+      <span class="tag">MODELS</span><h3>Genesis AI</h3><p>Physics simulation plus real data. $105M seed.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_generalist.jpg" alt="Generalist AI"><span class="fact">Pete Florence, ex-DeepMind (RT-2) · GEN-1 model · $400M at $2B</span></div>
+      <span class="tag">MODELS</span><h3>Generalist AI</h3><p>Pete Florence (RT-2). $400M at a $2B valuation.</p>
+    </div>
+  </div>
+  <div class="kpirow"><span class="l">Five versions of the same goal. What differs is the data strategy.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">funding — Bloomberg (2026-03-10) · TechCrunch (2025-07-01) · SiliconANGLE (2026-06-04) · company sites</span>
+    <span class="idx"><b>M·02</b> · MARKET</span>
+  </div>
+</section>
+
+<!-- ===== M·BODIES · robot builders (paper, taxonomy ×5) ===== -->
+<section class="slide sl-paper a-tax" id="m-bodies">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 3 · The market</div>
+  <div class="k-h2">Five betting on the <b>robot</b></div>
+  <div class="cards c5">
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_figure.jpg" alt="Figure"><span class="fact">among the best-funded humanoid startups · BMW plant pilots</span></div>
+      <span class="tag">ROBOTS</span><h3>Figure</h3><p>Humanoids for factory and warehouse work.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_1x.jpg" alt="1X"><span class="fact">NEO, a soft-bodied humanoid built for homes · Norway + Bay Area</span></div>
+      <span class="tag">ROBOTS</span><h3>1X</h3><p>Humanoids aimed at the home.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_dyna.jpg" alt="Dyna Robotics"><span class="fact">Dyna-2 model · arm pairs folding laundry commercially today</span></div>
+      <span class="tag">ROBOTS</span><h3>Dyna</h3><p>Arm pairs doing paid work today: laundry, food prep.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_mimic.jpg" alt="Mimic Robotics"><span class="fact">ETH spinoff · trains from wearables worn by factory workers on shift</span></div>
+      <span class="tag">ROBOTS</span><h3>Mimic</h3><p>Dexterous hands that bolt onto standard arms. ETH spinoff.</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/collected/market/logo_sunday.png" alt="Sunday Robotics"><span class="fact">$1.15B valuation months out of stealth · glove demos, no teleop</span></div>
+      <span class="tag">ROBOTS</span><h3>Sunday</h3><p>Home robot Memo, taught by a skill-capture glove.</p>
+    </div>
+  </div>
+  <div class="kpirow"><span class="l">Different bodies, same need: demonstration data, and lots of it.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">company sites · Sunday Series B — mlq.ai (2026-03) · Mimic — The Engineer (2025-11)</span>
+    <span class="idx"><b>M·03</b> · MARKET</span>
+  </div>
+</section>
+
+<!-- ===== M·DATA · the data market (paper, table) ===== -->
+<section class="slide sl-paper a-table" id="m-data">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 3 · The market</div>
+  <div class="k-h2">Behind them all: <b>the data market</b></div>
+  <table>
+    <tr><th>Player</th><th>Focus</th><th>Robotics data</th></tr>
+    <tr><td>Scale AI</td><td>Annotation at industrial scale</td><td>Teleop fleets, 1,000+ hrs of demonstrations a day</td></tr>
+    <tr><td>Encord</td><td>Data platform &amp; tooling</td><td>Teleop warehouses, video-first pipelines</td></tr>
+    <tr><td>Mecka</td><td>Egocentric pure-play</td><td>$60M Series A · owns the Egoverse dataset</td></tr>
+    <tr><td>Lightwheel</td><td>Simulation &amp; evaluation</td><td>SimReady assets, sim-based model evals</td></tr>
+    <tr class="hot"><td>Abaka AI</td><td>The new player: robotics-native data</td><td>Ego capture + hardware + annotation + QC</td></tr>
+  </table>
+  <p class="mono" style="margin-top:14px; font-size:12.5px; color:#a08d82;">a sample of the ~18 companies we track. The full landscape gets its own session.</p>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">assets/rivals research files · CB Insights, robot demonstration data providers · scale.com · encord.com</span>
+    <span class="idx"><b>M·04</b> · MARKET</span>
+  </div>
+</section>
+<!-- ===== D4 · DIVIDER (orange) ===== -->
+<section class="slide sl-orange a-div" id="d4">
+  <div class="wm-layer half-r"></div>
+  <div class="num mono">SECTION 04 / 04</div>
+  <h1>Abaka</h1>
+  <div class="sub">What we make, for every layer of that data stack.</div>
+  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span class="mono">JOURNEY · NARRATIVE · MARKET · ABAKA</span></div>
+</section>
+
+<!-- ===== A·PROD · products (paper, taxonomy ×3) ===== -->
+<section class="slide sl-paper a-tax" id="a-prod">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 4 · Abaka</div>
+  <div class="k-h2">Our products, on the <b>same board</b></div>
+  <div class="cards c3">
+    <div class="cardK">
+      <span class="tag">LAYER · EGOCENTRIC</span><h3>Egocentric</h3>
+      <p>First-person human data, collected with our own capture hardware.</p><p class="more">Egoverse-style collections · hand pose · tactile · captioning · QC</p>
+    </div>
+    <div class="cardK">
+      <span class="tag">LAYER · ROBOTICS</span><h3>Robotics</h3>
+      <p>Demonstration data collected on real rigs.</p><p class="more">UMI · teleop · task evaluation · annotation services</p>
+    </div>
+    <div class="cardK">
+      <span class="tag">LAYER · WORLD MODEL</span><h3>World model</h3>
+      <p>Structured worlds for models to train against.</p><p class="more">indoor building models · game records with actions · simulation assets</p>
+    </div>
+  </div>
+  <div class="kpirow"><span class="l">The data families from section 1. We sell into every one of them. Hover a card for the product list.</span></div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">product lines — internal (products.md)</span>
+    <span class="idx"><b>A·01</b> · ABAKA</span>
+  </div>
+</section>
+
+<!-- ===== A·DEMO · data demos (paper, placeholder wall) ===== -->
+<section class="slide sl-paper a-demo" id="a-demo">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 4 · Abaka</div>
+  <div class="k-h2">What the data <b>looks like</b></div>
+  <div class="tiles">
+    <div class="tile"><video src="assets/abaka_products/ego.mp4" muted loop playsinline preload="none"></video><span class="lab mono">egocentric capture</span></div>
+    <div class="tile"><video src="assets/abaka_products/handpose.mp4" muted loop playsinline preload="none"></video><span class="lab mono">ego hand-pose</span></div>
+    <div class="tile"><video src="assets/abaka_products/tactile.mp4" muted loop playsinline preload="none"></video><span class="lab mono">tactile data</span></div>
+    <div class="tile"><video src="assets/abaka_products/teleop.mp4" muted loop playsinline preload="none"></video><span class="lab mono">teleop session</span></div>
+    <div class="tile"><video src="assets/abaka_products/3d_indoor.mp4" muted loop playsinline preload="none"></video><span class="lab mono">indoor 3D model</span></div>
+    <div class="tile"><video src="assets/abaka_products/simulation.mp4" muted loop playsinline preload="none"></video><span class="lab mono">simulation assets</span></div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">all six: our own data — assets/abaka_products</span>
+    <span class="idx"><b>A·02</b> · ABAKA</span>
+  </div>
+</section>
+
+<!-- ===== A·RES · research (paper, research cards) ===== -->
+<section class="slide sl-paper a-res" id="a-res">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Section 4 · Abaka research</div>
+  <div class="k-h2">Two bets of our own</div>
+  <div class="cards">
+    <div class="cardK">
+      <span class="tag">RESEARCH · 01</span>
+      <h3>Pantograph</h3>
+      <p>A few teleoperated demonstrations, multiplied into many through agentic augmentation. It runs the ALOHA demo coming up next.</p>
+      <span class="owner">YIFAN KANG</span>
+    </div>
+    <div class="cardK">
+      <span class="tag">RESEARCH · 02</span>
+      <h3>TouchScale</h3>
+      <p>A tactile dataset and a tactile-native world action model: robots that plan with their sense of touch. The gloves are in the experience session.</p>
+      <span class="owner">AARON FAN · ZACK ZHU</span>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka <span>robotics</span></span>
+    <span class="cite">visuals pending from project owners — placeholders for now</span>
+    <span class="idx"><b>A·03</b> · ABAKA</span>
+  </div>
+</section>
+
+<!-- ===== T·CLOSE · closing (orange) ===== -->
+<section class="slide sl-orange a-close" id="t-close">
+  <div class="wm-layer half-r"></div>
+  <h1>Next: two demos, then hands on.</h1>
+  <div class="list" style="margin-top:34px;">
+    <span class="item mono" style="background:rgba(255,243,236,.14);">DEMO 1 — AGENTIC PLANNING ON ALOHA</span>
+    <span class="item mono" style="background:rgba(255,243,236,.14);">DEMO 2 — DIFFUSION POLICY</span>
+  </div>
+  <div class="list" style="margin-top:16px;">
+    <span class="item mono">TACHIN TACTILE GLOVES</span>
+    <span class="item mono">UDCAP VR HAND TRACKING</span>
+    <span class="item mono">ALOHA TELEOP — YOU DRIVE</span>
+  </div>
+  <div class="foot">abaka <span>robotics</span></div>
+</section>
+</div></div>
+<div class="hud">
+  <span class="cnt mono"></span>
+  <button class="prev" title="previous">←</button>
+  <button class="next" title="next">→</button>
+  <button class="fs" title="fullscreen (F)">⛶</button>
+</div>
+<div class="progress"><i></i></div>
+<script src="deck.js"></script>
+</body>
+</html>

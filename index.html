@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abaka Robotics — Slides</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #fbf6f2;
+    --ink: #2a1f18;
+    --body: #4a3a30;
+    --muted: #a08d82;
+    --card: #ffffff;
+    --line: #f3e2d8;
+    --accent: #fd5f32;
+    --ember: #c23f1b;
+    --wm-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Cdefs%3E%3Cg id='h'%3E%3Crect x='-30' y='-20' width='60' height='40' rx='12'/%3E%3Cpath d='M0 -20V-32'/%3E%3Ccircle cx='0' cy='-38' r='5'/%3E%3Ccircle cx='-10' cy='2' r='4'/%3E%3Ccircle cx='10' cy='2' r='4'/%3E%3C/g%3E%3Cg id='g'%3E%3Ccircle r='15'/%3E%3Cpath d='M0 -29v8M0 21v8M-29 0h8M21 0h8M-20 -20l5.5 5.5M14.5 14.5l5.5 5.5M20 -20l-5.5 5.5M-14.5 14.5l-5.5 5.5'/%3E%3C/g%3E%3Cg id='c'%3E%3Cpath d='M-20 10V-8H20V10M-13 10v12M13 10v12M0 -8V-20'/%3E%3Ccircle cx='0' cy='-27' r='6'/%3E%3C/g%3E%3Cg id='r'%3E%3Cpath d='M-22 22L0 -6L24 -14'/%3E%3Ccircle cx='-22' cy='22' r='5.5'/%3E%3Ccircle cx='0' cy='-6' r='5.5'/%3E%3Ccircle cx='24' cy='-14' r='5.5'/%3E%3C/g%3E%3Cg id='n'%3E%3Cpath d='M18 0L9 15.6L-9 15.6L-18 0L-9 -15.6L9 -15.6Z'/%3E%3Ccircle r='7'/%3E%3C/g%3E%3Cg id='p'%3E%3Crect x='-16' y='-16' width='32' height='32' rx='4'/%3E%3Cpath d='M-16 -8h-8M-16 8h-8M16 -8h8M16 8h8M-8 -16v-8M8 -16v-8M-8 16v8M8 16v8'/%3E%3C/g%3E%3Cg id='e'%3E%3Ccircle r='16'/%3E%3Ccircle r='5'/%3E%3C/g%3E%3Cg id='j'%3E%3Cpath d='M-18 20H18M0 20V-6'/%3E%3Ccircle cx='0' cy='-14' r='8'/%3E%3C/g%3E%3Cg id='s'%3E%3Ccircle cx='0' cy='16' r='4'/%3E%3Cpath d='M-8 8A11.3 11.3 0 0 1 8 8M-15 1A21.2 21.2 0 0 1 15 1'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%23000' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cuse href='%23h' transform='translate(60 55) rotate(-9)'/%3E%3Cuse href='%23g' transform='translate(185 40) rotate(22) scale(.85)'/%3E%3Cuse href='%23p' transform='translate(305 78) rotate(11)'/%3E%3Cuse href='%23c' transform='translate(418 48) rotate(-14) scale(.9)'/%3E%3Cuse href='%23s' transform='translate(118 158) rotate(6)'/%3E%3Cuse href='%23r' transform='translate(252 172) rotate(-12)'/%3E%3Cuse href='%23n' transform='translate(396 178) rotate(24) scale(.9)'/%3E%3Cuse href='%23j' transform='translate(48 262) rotate(9)'/%3E%3Cuse href='%23e' transform='translate(172 292) scale(.85)'/%3E%3Cuse href='%23h' transform='translate(312 300) rotate(15) scale(.8)'/%3E%3Cuse href='%23g' transform='translate(428 262) rotate(-28)'/%3E%3Cuse href='%23c' transform='translate(86 392) rotate(13) scale(.85)'/%3E%3Cuse href='%23n' transform='translate(222 420) rotate(-18) scale(.8)'/%3E%3Cuse href='%23r' transform='translate(362 408) rotate(28) scale(.9)'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    display: flex; flex-direction: column;
+  }
+
+  /* robotic-glyph watermark, bottom layer, drifting very slowly */
+  .wm-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: #b98a6f; opacity: .07;
+    -webkit-mask-image: var(--wm-svg); mask-image: var(--wm-svg);
+    -webkit-mask-size: 480px; mask-size: 480px;
+    -webkit-mask-repeat: repeat; mask-repeat: repeat;
+    animation: wm-drift 240s linear infinite;
+  }
+  @keyframes wm-drift {
+    from { -webkit-mask-position: 0 0; mask-position: 0 0; }
+    to   { -webkit-mask-position: 480px 480px; mask-position: 480px 480px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wm-layer { animation: none; } }
+
+  .wrap {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 880px; margin: 0 auto;
+    padding: 96px 32px 48px;
+    flex: 1; display: flex; flex-direction: column;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  h1 {
+    font-family: "Outfit", sans-serif; font-size: 52px; font-weight: 600;
+    letter-spacing: -.015em; line-height: 1.08; margin-bottom: 16px;
+  }
+  .lede { color: var(--body); font-size: 17px; max-width: 56ch; margin-bottom: 52px; }
+
+  .talks { display: flex; flex-direction: column; gap: 24px; }
+  a.talk {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    box-shadow: 0 3px 0 var(--line);
+    padding: 30px 34px 28px;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  a.talk:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 5px 0 var(--accent);
+  }
+  .talk .tag {
+    display: inline-block; background: var(--accent); color: #fff;
+    border-radius: 999px; font-family: "Outfit", sans-serif;
+    font-weight: 600; font-size: 13.5px; padding: 5px 15px; margin-bottom: 16px;
+  }
+  .talk h2 {
+    font-family: "Outfit", sans-serif; font-size: 30px; font-weight: 600;
+    letter-spacing: -.01em; line-height: 1.15; margin-bottom: 8px;
+  }
+  .talk h2 b { color: var(--accent); font-weight: 600; }
+  .talk p { color: var(--body); font-size: 16px; max-width: 60ch; margin-bottom: 18px; }
+  .talk .meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--muted);
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .talk .meta i { font-style: normal; color: var(--line); }
+  .talk .meta .go { color: var(--accent); font-weight: 500; margin-left: auto; }
+
+  .aside { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 22px; }
+  .aside h3 {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .aside p { color: var(--body); font-size: 14.5px; max-width: 68ch; }
+  .aside a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .aside a:hover { text-decoration: underline; }
+
+  footer {
+    position: relative; z-index: 1;
+    max-width: 880px; width: 100%; margin: 0 auto; padding: 28px 32px 40px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  footer .wm { font-family: "Outfit", sans-serif; font-size: 17px; font-weight: 600; }
+  footer .wm span { color: var(--muted); font-weight: 400; }
+  footer .idx { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 560px) {
+    .wrap { padding-top: 64px; }
+    h1 { font-size: 38px; }
+    .talk h2 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wm-layer"></div>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">abaka robotics · slides</div>
+    <h1>Pick a talk</h1>
+    <p class="lede">Decks from Abaka Robotics events. Each opens as a click-through slider —
+      arrow keys or the on-screen buttons to move, <b>F</b> for fullscreen. Videos play muted.</p>
+  </header>
+
+  <div class="talks">
+    <a class="talk" href="expert-talk/">
+      <span class="tag">OPEN DAY · AUG 2026</span>
+      <h2>The expert talk — <b>journey of a command</b></h2>
+      <p>How robots work, who is building them, and where we fit: one command followed
+        end to end through a real robot, the old dream and the new method, the data market,
+        and what Abaka builds for it.</p>
+      <span class="meta">61 slides <i>·</i> 4 sections <i>·</i> ~20 min <i>·</i> interactive 3D arm inside
+        <span class="go">view deck →</span></span>
+    </a>
+  </div>
+
+  <div class="aside">
+    <h3>Behind the deck</h3>
+    <p>The build pipeline that produced this talk is captured as a reusable skill:
+      <a href="skills/bangya-slides/bangya-slides-pipeline.html">bangya-slides, the one-page picture</a> —
+      with the full <a href="https://github.com/Abaka-Skills/slides/blob/main/skills/bangya-slides/SKILL.md">SKILL.md</a>
+      and <a href="https://github.com/Abaka-Skills/slides/blob/main/skills/bangya-slides/TRAJECTORY.md">session trajectory</a> in the repo.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="wm">abaka <span>robotics</span></span>
+  <span class="idx">github.com/Abaka-Skills/slides</span>
+</footer>
+</body>
+</html>
