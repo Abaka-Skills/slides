@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pantograph</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="pantograph.css">
+</head>
+<body>
+<div class="deck"><div class="stage">
+<!-- ===== S01 · TITLE (orange) ===== -->
+<section class="slide sl-orange a-title with-img" id="s01">
+  <div class="wm-layer half-r"></div>
+  <div class="col">
+    <h1>Pantograph</h1>
+    <div class="sub">Scaling few teleoperated demonstrations with agentic augmentation</div>
+    <div class="who">Bangya Liu</div>
+    <div class="email mono">bangya@abaka.ai</div>
+  </div>
+  <div class="plate"><img src="assets/gen/pantograph_a.png" alt="A drafting pantograph traces a small gripper sketch and draws it three times larger"></div>
+  <div class="logos"><img src="assets/abaka/logo_horizontal_white.png" alt="Abaka AI"><span class="boothpill">Booth #927</span></div>
+  <div class="date mono" style="top:44px; bottom:auto;">2026·09</div>
+</section>
+
+<!-- ===== S02 · GOLDBERG QUOTE (paper) ===== -->
+<section class="slide sl-paper a-quote" id="s02">
+  <div class="wm-layer"></div>
+  <div class="mark">“</div>
+  <blockquote>I've always been cautious and skeptical of near-term adoption of robots. Now I'm reconsidering. <span style="color:var(--orange)">The timeline for real robots has just advanced considerably.</span></blockquote>
+  <div class="attr"><b>Ken Goldberg</b> · “Goosebumps: a Paradigm Shift is Occurring in Robotics” · 18 Sep 2026</div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">K. Goldberg, X Article, 2026-09-18 · x.com/ken_goldberg/status/2100986412762087909</span>
+    <span class="idx"><b>01</b> · WHY NOW</span>
+  </div>
+</section>
+
+<!-- ===== S03 · FRONTIER MODELS DRIVE ARMS (paper, split) ===== -->
+<section class="slide sl-paper" id="s03">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Why now</div>
+  <div class="k-h2">General models already <b>drive robot arms</b></div>
+  <div class="duocol">
+    <div class="colm">
+      <div class="mount">
+        <div class="mbox"><img class="fit" src="assets/img/robocurve_opus5_scaling_crop.png" alt="Robocurve chart: score of Opus 5 on robot arms against API cost per run, rising from low to high effort"></div>
+        <div class="cap"><b>FIG</b> — test-time scaling of Opus 5 on robot arms · Robocurve</div>
+      </div>
+      <p class="say"><b>Robocurve:</b> Opus 5 stacks blocks on real arms from raw joint targets, no IK, no VLA. <b>46%</b> at low effort, <b>76%</b> at high.</p>
+    </div>
+    <div class="colm">
+      <div class="mount">
+        <div class="mbox"><img class="fit" src="assets/img/robodojo_fig1_overview.png" alt="RoboDojo benchmark overview: 42 simulation tasks, 18 real-world tasks, leaderboard, XPolicyLab"></div>
+        <div class="cap"><b>FIG</b> — RoboDojo: 42 sim + 18 real tasks · Fig. 1</div>
+      </div>
+      <p class="say"><b>GPT-6 Astra</b>, a general model used as the policy, ranks ahead of all 40 public policies on RoboDojo: <b>22.5%</b> average success. GPT-5.5 on the same interface: <b>0.9%</b>.</p>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">Robocurve, Test-time scaling of Opus 5 on robot arms, 2026-08-19 · Zhang et al., An Unexpected Robot Policy: GPT-6 Astra on RoboDojo, arXiv:2609.24170, Tab. 1 · RoboDojo arXiv:2607.04434, Fig. 1</span>
+    <span class="idx"><b>02</b> · WHY NOW</span>
+  </div>
+</section>
+
+<!-- ===== S04 · A ROBOT CURVE (paper, ladder) ===== -->
+<section class="slide sl-paper" id="s04">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Why now</div>
+  <div class="k-h2">LIBERO-PRO: move the objects, rewrite the instruction</div>
+  <div class="ladder">
+    <div class="grp">VLAs trained on the benchmark's demos</div>
+    <div class="r"><span class="lab">OpenVLA</span><span class="trk"><span class="bar" style="--w:0%"></span></span><span class="val">0</span></div>
+    <div class="r"><span class="lab">π0</span><span class="trk"><span class="bar" style="--w:0%"></span></span><span class="val">0</span></div>
+    <div class="r"><span class="lab">π0.5</span><span class="trk"><span class="bar" style="--w:12.8%"></span></span><span class="val">13</span></div>
+    <div class="grp">coding agents</div>
+    <div class="r agent"><span class="lab">CaP-Agent0</span><span class="trk"><span class="bar" style="--w:18.2%"></span></span><span class="val">18</span></div>
+    <div class="r agent"><span class="lab">ASPIRE <small>opus-4.6</small></span><span class="trk"><span class="bar" style="--w:71.7%"></span></span><span class="val">72</span></div>
+    <div class="r agent"><span class="lab">ASPIRE <small>opus-5</small></span><span class="trk"><span class="bar" style="--w:89.3%"></span></span><span class="val">89</span></div>
+    <div class="r hot"><span class="lab">ENCORE <small>ours</small></span><span class="trk"><span class="bar" style="--w:96.3%"></span></span><span class="val">96</span></div>
+  </div>
+  <div class="note" style="margin-top:22px;">% sealed success, 60 perturbed cells × 50 episodes. <b>Not the same game:</b> each agent practises 15 episodes per cell and calls a perception API; the VLAs see the change cold.</div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">LIBERO-PRO arXiv:2510.03827 · VLA, CaP-Agent0, ASPIRE opus-4.6 as reported in ASPIRE arXiv:2607.00272 · ASPIRE opus-5 rerun and ENCORE: Kang et al. 2026</span>
+    <span class="idx"><b>03</b> · WHY NOW</span>
+  </div>
+</section>
+
+<!-- ===== S05 · IS ROBOT LEARNING OVER? (paper, statement) ===== -->
+<section class="slide sl-paper a-say" id="s05">
+  <div class="wm-layer"></div>
+  <div class="line">If an agent can write the policy, <b>why collect robot data at all?</b></div>
+  <div class="subline">I think we still should, and the reason tells us what agents are good for.</div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite"></span>
+    <span class="idx"><b>04</b> · THE QUESTION</span>
+  </div>
+</section>
+
+<!-- ===== S06 · THREE KINDS OF AGENT POLICY (paper, taxonomy) ===== -->
+<section class="slide sl-paper a-tax" id="s06">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Agent policies</div>
+  <div class="k-h2">Three ways to put a frontier model on a robot</div>
+  <div class="cards c3">
+    <div class="cardK">
+      <div class="photo"><img src="assets/img/still_gap_packing_real.jpg" alt="GaP: an agent-written control graph packs items into a basket on a real arm"></div>
+      <span class="tag">01 · MODEL OFFLINE</span>
+      <h3>Agent writes the program</h3>
+      <p>Write, run, repair, then ship code. The robot runs no model. Goldberg calls it Agentic Robotics.</p>
+      <p class="more">CaP-X · ASPIRE · GaP · HarnessPAI · ENCORE</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/img/still_x_djiafei_astra_api_control_loop.jpg" alt="GPT-6 Astra drives a simulated arm through raw move_joints API calls" style="object-position:left center;"></div>
+      <span class="tag">02 · MODEL EVERY STEP</span>
+      <h3>Model in the loop</h3>
+      <p>A VLM looks, emits one JSON action or tool call, looks again. Isola calls these robot-use agents.</p>
+      <p class="more">GPT-Policy · Astra on RoboDojo · OpenETA · Agent as Policy</p>
+    </div>
+    <div class="cardK">
+      <div class="photo"><img src="assets/img/still_jev_so101_ball_to_bowl_real.jpg" alt="Jev controls an SO-101 arm placing a ball in a bowl"></div>
+      <span class="tag">03 · FAST DECISIONS</span>
+      <h3>Small decision model</h3>
+      <p>Jev scores typed choices in one pass, under a second per call, on top of a scripted executor.</p>
+      <p class="more">community repos only, no paper yet · jev-robot-control, RoboJEV, EmbodiedJev</p>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">Goldberg 2026-09-18 · Isola, Robot-Use Agents, 2026-09-07 · HarnessPAI 2609.29166 · GPT-Policy 2609.19138 · OpenETA 2608.03924 · github.com/openroboto-ai/jev-robot-control</span>
+    <span class="idx"><b>05</b> · AGENT POLICIES</span>
+  </div>
+</section>
+
+<!-- ===== S07 · DEMO WALL (dark) ===== -->
+<section class="slide sl-dark a-wall" id="s07">
+  <div class="wm-layer"></div>
+  <h2>This year: <b>agents driving robots</b></h2>
+  <div class="tiles c3" id="demo-tiles">
+    <div class="tile"><video src="assets/video/robocurve_opus5_hanoi.mp4" muted loop playsinline></video><span>Robocurve · Opus 5 · Tower of Hanoi (teaser)</span></div>
+    <div class="tile"><video src="assets/video/x_djiafei_astra_api_control_loop.mp4" muted loop playsinline></video><span>GPT-6 Astra · raw JSON joint commands (API wait cut)</span></div>
+    <div class="tile"><video src="assets/video/gptpolicy_towel_with_human_video.mp4" muted loop playsinline></video><span>GPT-Policy · towel from a human video (sped up; runs take 12–25 min)</span></div>
+    <div class="tile"><video src="assets/video/gap_packing_real.mp4" muted loop playsinline></video><span>GaP (Goldberg lab) · agent-written program</span></div>
+    <div class="tile"><video src="assets/video/jev_so101_ball_to_bowl_real.mp4" muted loop playsinline></video><span>Jev · SO-101 (supervised prototype)</span></div>
+    <div class="tile"><video src="assets/video/waddle_selfplay_later.mp4" muted loop playsinline></video><span>Waddle · agent collects ~1,000 picks overnight, trains ACT</span></div>
+  </div>
+  <div class="punch mono" style="bottom:40px;">click a tile to enlarge · Robocurve · Jiafei Duan on X · GPT-Policy · GaP · Jev community repo · Waddle Labs</div>
+</section>
+
+<!-- ===== S08 · TIMESCALES (paper) ===== -->
+<section class="slide sl-paper" id="s08">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Why not the final policy</div>
+  <div class="k-h2">A loop can't react faster than <b>it looks</b></div>
+  <div class="tscale">
+    <svg viewBox="0 0 1088 400" role="img" aria-label="Log time axis from 1 millisecond to 60 seconds. Controllers sit at 1 ms and 20 ms, human reaction at 0.2 s, agents at 0.8 to 34 seconds per decision.">
+      <rect class="band" x="40" y="168" width="209" height="44" rx="6"/>
+      <text class="bandl" x="144" y="160" text-anchor="middle">CONTACT (ms)</text>
+      <text class="grp" x="40" y="22">SECONDS PER DECISION, IN-THE-LOOP AGENTS (MEASURED)</text>
+      <text class="grp" x="40" y="392">CONTROLLERS AND PEOPLE</text>
+      <line class="ax" x1="40" y1="190" x2="1048" y2="190"/>
+      <g>
+        <line class="tk" x1="40" y1="182" x2="40" y2="198"/><text class="tl" x="40" y="232" text-anchor="middle">1 ms</text>
+        <line class="tk" x1="249" y1="182" x2="249" y2="198"/><text class="tl" x="249" y="232" text-anchor="middle">10 ms</text>
+        <line class="tk" x1="459" y1="182" x2="459" y2="198"/><text class="tl" x="459" y="232" text-anchor="middle">100 ms</text>
+        <line class="tk" x1="668" y1="182" x2="668" y2="198"/><text class="tl" x="668" y="232" text-anchor="middle">1 s</text>
+        <line class="tk" x1="877" y1="182" x2="877" y2="198"/><text class="tl" x="877" y="232" text-anchor="middle">10 s</text>
+        <line class="tk" x1="1040" y1="182" x2="1040" y2="198"/><text class="tl" x="1040" y="232" text-anchor="middle">60 s</text>
+      </g>
+      <!-- agents (above) -->
+      <g class="m-a pop" style="animation-delay:.2s"><line x1="648" y1="190" x2="648" y2="138"/><circle cx="648" cy="190" r="8"/><text class="n" x="648" y="112" text-anchor="middle">Jev</text><text class="v" x="648" y="130" text-anchor="middle">≈0.8 s</text></g>
+      <g class="m-a pop" style="animation-delay:.4s"><line x1="798" y1="190" x2="798" y2="100"/><circle cx="798" cy="190" r="8"/><text class="n" x="798" y="74" text-anchor="middle">GPT-5.4 call</text><text class="v" x="798" y="92" text-anchor="middle">4.2 s</text></g>
+      <g class="m-a pop" style="animation-delay:.6s"><line x1="914" y1="190" x2="914" y2="138"/><circle cx="914" cy="190" r="8"/><text class="n" x="914" y="112" text-anchor="middle">GPT-Policy</text><text class="v" x="914" y="130" text-anchor="middle">≈15 s</text></g>
+      <g class="m-a pop" style="animation-delay:.8s"><line x1="988" y1="190" x2="988" y2="62"/><circle cx="988" cy="190" r="8"/><text class="n" x="988" y="36" text-anchor="middle">OpenETA</text><text class="v" x="988" y="54" text-anchor="middle">≈34 s</text></g>
+      <!-- controllers (below) -->
+      <g class="m-c"><line x1="40" y1="244" x2="40" y2="296"/><circle cx="40" cy="190" r="8"/><text class="n" x="48" y="318">impedance control</text><text class="v" x="48" y="336">1 kHz</text></g>
+      <g class="m-c"><line x1="312" y1="244" x2="312" y2="266"/><circle cx="312" cy="190" r="8"/><text class="n" x="312" y="288" text-anchor="middle">VLA action chunks</text><text class="v" x="312" y="306" text-anchor="middle">50 Hz</text></g>
+      <g class="m-c"><line x1="522" y1="244" x2="522" y2="296"/><circle cx="522" cy="190" r="8"/><text class="n" x="522" y="318" text-anchor="middle">human reaction</text><text class="v" x="522" y="336" text-anchor="middle">≈0.2 s</text></g>
+    </svg>
+  </div>
+  <div class="qcard" style="margin-top:-6px;">“Real-time control would require roughly 83 Hz; current non-reasoning inference runs at ~0.2–0.4 Hz.”<span class="who">Anthropic · Claude plays robotics · 9 Jul 2026 · appendix: latency</span></div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">OpenETA 2608.03924 Tab.3 (1045 s / 30.7 calls) · GPT-Policy 2609.19138 Tab.1 (18.9 min / 76.7 decisions) · Guava 2606.18363 Tab.4 · jev-robot-control README (181.8 s / 226 calls) · π0 50 Hz · anthropic.com/research/claude-plays-robotics</span>
+    <span class="idx"><b>06</b> · NOT FINAL</span>
+  </div>
+</section>
+
+<!-- ===== S10 · THESIS (paper) ===== -->
+<section class="slide sl-paper" id="s10">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">The idea</div>
+  <div class="k-h2">The agent is the <b>teleoperator</b></div>
+  <div class="thesis">
+    <div class="q">
+      <blockquote>A frontier model is too slow to sit inside a 50 Hz control loop. It can still do what a teleoperator does: <b>produce demonstrations</b>, offline, for a fast policy to learn.</blockquote>
+      <ul class="k-list" style="margin-top:26px;">
+        <li>Real robot data at the top of the pyramid stays scarce and expensive.</li>
+        <li>Agent policies fill the middle: <b>many trajectories</b>, in new layouts, from a few seeds.</li>
+      </ul>
+    </div>
+    <div class="mount">
+      <div class="mbox"><img class="fit" src="assets/img/et_groot_n1_pyramid.png" alt="GR00T N1 data pyramid: web data and human videos at the base, synthetic data in the middle, real-world robot data at the top"><span class="tagon">agent policies</span></div>
+      <div class="cap"><b>FIG</b> — the robot data pyramid · GR00T N1, Fig. 1</div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">NVIDIA, GR00T N1, arXiv:2503.14734, Fig. 1</span>
+    <span class="idx"><b>08</b> · THE IDEA</span>
+  </div>
+</section>
+
+<!-- ===== S11 · IT ALREADY WORKS (paper, taxonomy) ===== -->
+<section class="slide sl-paper a-tax" id="s11">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">The idea · evidence</div>
+  <div class="k-h2">The agent makes the data, <b>a small policy learns it</b></div>
+  <div class="cards c3">
+    <div class="cardK">
+      <span class="tag">HARNESSPAI · SEP 2026</span>
+      <div class="bign">34.9 → 73.7<small>%</small></div>
+      <p>π0.5 fine-tuned on a coding agent's program rollouts, held-out LIBERO-PRO seeds.</p>
+      <p class="more">rollouts cost ≈1 s and $0 of API each once the program converges</p>
+    </div>
+    <div class="cardK">
+      <span class="tag">EMBODIEDSWE · SEP 2026</span>
+      <div class="bign">18 → 69<small>%</small></div>
+      <p>VLA success as agent-generated demos grow from 10 to 400 per task. On a real robot, π0.5-DROID trained only on them: full lamp disassembly 20% vs 0%.</p>
+      <p class="more">agent-aided diversity beats script-only replay out of distribution: 0.233 vs 0.066</p>
+    </div>
+    <div class="cardK">
+      <span class="tag">HA, FLORENCE, SONG · 2023</span>
+      <div class="bign">67.0 <small>vs</small> 33.8</div>
+      <p>The distilled student beats the LLM-planned teacher that collected its data, because the data kept its retries.</p>
+      <p class="more">Scaling Up and Distilling Down, CoRL 2023</p>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">HarnessPAI 2609.29166 p.28 · EmbodiedSWE 2609.27308 Fig.9, Tab.1–2 · Ha et al. 2307.14535 Tab.2</span>
+    <span class="idx"><b>09</b> · THE IDEA</span>
+  </div>
+</section>
+
+<!-- ===== S12 · WHAT IT DOES NOT MEAN (paper, table) ===== -->
+<section class="slide sl-paper a-table" id="s12">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">The idea · limits</div>
+  <div class="k-h2">A data engine, but <b>not an infinite, expert one</b></div>
+  <table>
+    <tr><th>Tempting claim</th><th>What the papers show</th></tr>
+    <tr><td>Infinite</td><td>Only for tasks the agent can solve, at hours and $35–73 per solved task.</td></tr>
+    <tr><td>Expert</td><td>After fine-tuning the student trails the teacher, 73.7 vs 96.5. Adding RL closed the gap in one paper (97.8).</td></tr>
+    <tr><td>Self-checking</td><td>One model reward-hacked in 43% of its runs. The engine needs an independent judge.</td></tr>
+    <tr class="hot"><td>Just add demos</td><td>One demo from a different layout, pasted into Astra's context: 22.9% → 17.9% (image) and 12.9% (text). The losses came on tasks it already solved. The authors' guesses, untested: it copied the example's geometry into the new scene, or precision was the bottleneck, not understanding.</td></tr>
+  </table>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">EmbodiedSWE Tab.8, Tab.13 · HarnessPAI p.4, p.28 · SynthDemo-RL 2609.21650 Tab.II · Astra-RoboDojo 2609.24170 Tab.3, §4.5</span>
+    <span class="idx"><b>10</b> · THE IDEA</span>
+  </div>
+</section>
+
+<!-- ===== S13 · ENCORE DIVIDER (orange) ===== -->
+<section class="slide sl-orange a-div" id="s13">
+  <div class="wm-layer half-r"></div>
+  <div class="num mono">OUR PAPER</div>
+  <h1 style="font-size:84px; max-width:16ch;">ENCORE</h1>
+  <div class="sub" style="font-size:28px; color:var(--cream);">Few-shot agentic discovery of manipulation strategies</div>
+  <div class="sub">Yifan Kang, Zihan Wang, Zhiwen Fan, Bangya Liu</div>
+  <div class="sub" style="margin-top:6px; font-size:20px;">MIT · 2077AI · Texas A&amp;M · UW–Madison</div>
+  <div class="sub" style="margin-top:34px; font-family:'Outfit',sans-serif; font-weight:600; font-size:30px; color:#fff;">Where do the few teleoperated demos go?</div>
+</section>
+
+<!-- ===== S14 · ENCORE IDEA (paper, figure) ===== -->
+<section class="slide sl-paper a-fig" id="s14">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">ENCORE · the idea</div>
+  <div class="k-h2">Demos as <b>evidence the agent reads</b>, not training data</div>
+  <div class="body">
+    <div class="mount" style="width:60%;">
+      <div class="mbox" style="background:#fff;"><img class="fit" src="assets/encore/fig_teaser.png" alt="ENCORE overview: a demonstration pack feeds a coding agent that writes programs against a fixed API and refines them from execution feedback in simulation or on the real robot"></div>
+      <div class="cap"><b>FIG</b> — demo pack → coding agent → program → simulation or real robot</div>
+    </div>
+    <div class="pts">
+      <ul class="k-list">
+        <li>A task instruction like “hand over the cube” leaves out the how: grasp, order, contact.</li>
+        <li>Each teleop demo becomes a <b>pack</b>: keyframes at the demonstrator's gripper events, the state path, the actions. Nothing is labelled.</li>
+        <li>A coding agent reads the pack, writes a program, tests it on 15 episodes, and <b>freezes</b> it.</li>
+        <li>Sealed evaluation: the success signal is never shown.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">Kang, Wang, Fan, Liu · ENCORE: Few-Shot Agentic Discovery of Manipulation Strategies, 2026 · §3, Fig. 1</span>
+    <span class="idx"><b>00</b> · ENCORE</span>
+  </div>
+</section>
+
+<!-- ===== S15 · ENCORE RESULTS (paper, split with video) ===== -->
+<section class="slide sl-paper a-split" id="s15">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">ENCORE · what the demos change</div>
+  <div class="k-h2">Demos matter where the agent <b>can't see the answer</b></div>
+  <div class="body">
+    <div class="left" style="width:50%; gap:14px;">
+      <table class="api res">
+        <tr><td>LIBERO-PRO</td><td><b>96.3%</b> sealed vs ASPIRE 89.3% on the same model. The first program already works in <b>29/60</b> cells with demos, <b>1/60</b> without.</td></tr>
+        <tr><td>Silent failure</td><td>Bottom drawer: without demos, 33 versions and the note “cannot be engaged”, <b>0/50</b>. With demos, <b>50/50</b>.</td></tr>
+        <tr><td>Unstated goal</td><td>RoboDojo “build a tower”: <b>0/450</b> without demos, <b>95/450</b> with three.</td></tr>
+        <tr><td>Real robot</td><td>Five demos per task: cube handover <b>9/10</b>, cup inversion <b>9/10</b>.</td></tr>
+      </table>
+      <div class="note">Six contact-precise RoboDojo tasks score 0 with or without demos.</div>
+    </div>
+    <div class="right">
+      <div class="mount">
+        <div class="mbox"><video class="fit" src="assets/encore/page/drawer.mp4" muted loop playsinline></video></div>
+        <div class="cap"><b>VIDEO</b> — bottom drawer, sealed episodes · no demos 0/50 · three demos 50/50</div>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">ENCORE §4.2–4.6, Tab. 2, App. B · ASPIRE arXiv:2607.00272 · RoboDojo arXiv:2607.04434</span>
+    <span class="idx"><b>00</b> · ENCORE</span>
+  </div>
+</section>
+
+<!-- ===== S16 · PANTOGRAPH (paper) ===== -->
+<section class="slide sl-paper" id="s16">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Pantograph</div>
+  <div class="k-h2">Trace a few demos, <b>draw many copies</b></div>
+  <div class="mount" style="height:268px; margin-top:18px; padding:8px;">
+    <div class="mbox" style="background:#f2eadb;"><img src="assets/gen/pantograph_multi.png" alt="A multi-pen pantograph: one stylus traces an amber path, eight pencils draw indigo copies at different positions" style="object-position:center 58%;"></div>
+  </div>
+  <div class="pipe">
+    <div class="nd seed"><h4>A few teleop demos</h4><p>spent where the agent can't see the answer: unstated goals, silent failures, contact</p></div>
+    <div class="ar"><i></i><span>ENCORE<br>96% sealed</span></div>
+    <div class="nd"><h4>Agent policy</h4><p>program, or a model in the loop</p></div>
+    <div class="ar"><i></i><span>≈1 s, $0<br>per rollout</span></div>
+    <div class="nd"><h4>Many rollouts</h4><p>new layouts, kept only if an independent judge agrees</p></div>
+    <div class="ar"><i></i><span>HarnessPAI<br>EmbodiedSWE</span></div>
+    <div class="nd hot"><h4>Learned policy</h4><p>runs on the robot at control rate</p></div>
+  </div>
+  <div class="note" style="margin-top:14px;">Each arrow has been shown on its own, by different groups. <b>Not yet shown end to end:</b> teleop seeds → agent → rollouts → policy, and where teleop is worth the most. That is our next experiment.</div>
+  <div class="k-foot">
+    <span class="wm">pantograph <span>· abaka ai ·</span> <b class="booth">Booth #927</b></span>
+    <span class="cite">ENCORE 2026 · HarnessPAI 2609.29166 · EmbodiedSWE 2609.27308</span>
+    <span class="idx"><b>18</b> · PANTOGRAPH</span>
+  </div>
+</section>
+
+<!-- ===== S17 · ABAKA AI (dark wall) ===== -->
+<section class="slide sl-dark a-wall" id="s17">
+  <div class="wm-layer"></div>
+  <h2>Abaka AI · <b>physical AI data</b> <span class="boothpill dark">Booth #927</span></h2>
+  <div style="font-size:17px; color:#e8dcd2; margin-top:8px; max-width:88ch; line-height:1.45;">We built data for language models. Now we ask what today's strongest language models mean for physical intelligence. One answer: they change where human demonstrations are worth spending.</div>
+  <div class="tiles c3" style="margin-top:18px;">
+    <div class="tile"><video src="assets/abaka/products/teleop.mp4" muted loop playsinline></video><span>robot · teleoperation</span></div>
+    <div class="tile"><video src="assets/abaka/products/ego.mp4" muted loop playsinline></video><span>human · egocentric video</span></div>
+    <div class="tile"><video src="assets/abaka/products/handpose.mp4" muted loop playsinline></video><span>human · hand pose</span></div>
+    <div class="tile"><video src="assets/abaka/products/tactile.mp4" muted loop playsinline></video><span>human · tactile gloves</span></div>
+    <div class="tile"><video src="assets/abaka/products/simulation.mp4" muted loop playsinline></video><span>world · simulation</span></div>
+    <div class="tile"><video src="assets/abaka/products/3d_indoor.mp4" muted loop playsinline></video><span>world · 3D indoor scenes</span></div>
+  </div>
+  <div class="punch mono">abaka.ai/physical-ai · Booth #927 · scope → collect → annotate → deliver</div>
+</section>
+
+<!-- ===== S18 · CLOSE (orange) ===== -->
+<section class="slide sl-orange a-close" id="s18">
+  <div class="wm-layer half-r"></div>
+  <h1>Thanks.</h1>
+  <div style="font-size:26px; color:var(--blush); margin-top:18px; max-width:40ch;">Paper, code and videos below. Happy to talk about any of it.</div>
+  <div class="list">
+    <span class="item mono">yifank.github.io/encore</span>
+    <span class="item mono">github.com/YIFANK/encore</span>
+    <span class="item mono">abaka.ai/physical-ai</span>
+    <span class="item mono" style="background:var(--cream); color:var(--ember); border-color:var(--cream);">Booth #927</span>
+  </div>
+  <div class="foot">Bangya Liu <span>· Abaka AI · Booth #927</span></div>
+</section>
+
+</div></div>
+<div class="hud">
+  <span class="cnt mono"></span>
+  <button class="prev" title="previous">←</button>
+  <button class="next" title="next">→</button>
+  <button class="fs" title="fullscreen (F)">⛶</button>
+</div>
+<div class="progress"><i></i></div>
+<script id="idx-fill">/* footer index = slide position (1-based, matches ?slide=N and the HUD counter) */
+document.querySelectorAll('.slide').forEach(function (s, i) {
+  var b = s.querySelector('.k-foot .idx b'); if (b) b.textContent = String(i + 1).padStart(2, '0');
+});</script>
+<script src="deck.js"></script>
+</body>
+</html>
