@@ -1,0 +1,83 @@
+/* Demo Day host talk — additions on top of the Abaka deck.css (Knotwork). */
+
+/* title */
+.a-title .who { margin-top: 40px; font-family: "Outfit", sans-serif; font-size: 26px; font-weight: 600; }
+.a-title .who span { font-weight: 400; opacity: .8; }
+.a-title .logos { position: absolute; left: 96px; bottom: 48px; display: flex; gap: 18px; align-items: center;
+  font-family: "Outfit", sans-serif; font-size: 30px; font-weight: 600; color: var(--cream); }
+.a-title .logos img { height: 52px; width: auto; display: block; }
+.a-title .logos .x { opacity: .7; font-weight: 400; }
+.a-title .robots { position: absolute; right: 64px; bottom: 120px; width: 560px; opacity: .95; }
+.a-title .robots img { width: 100%; display: block; }
+
+/* footer chrome for this deck */
+.k-foot .wm { letter-spacing: -.005em; }
+
+/* who we are: big numbers + lifecycle */
+.mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 24px; }
+.nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.nums .cardK { padding: 34px 30px 30px; }
+.nums .n { font-family: "Outfit", sans-serif; font-size: 80px; font-weight: 600; color: var(--orange); line-height: 1; letter-spacing: -.02em; }
+.nums .l { font-size: 20px; color: var(--body); margin-top: 10px; line-height: 1.35; }
+.cycle { display: flex; align-items: center; gap: 10px; margin-top: 48px; flex-wrap: wrap; }
+.cycle .lab { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--note); margin-right: 8px; }
+.cycle .chipK { font-size: 17px; padding: 7px 18px; }
+.cycle .ar { color: var(--orange); font-size: 20px; }
+
+/* mission (dark, terminal like the poster) */
+.a-mission { padding: 72px 96px 96px; justify-content: center; }
+.a-mission .cmd { font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--warmgray); margin-bottom: 18px; }
+.a-mission .cmd b { color: var(--orange); font-weight: 500; }
+.a-mission .head { font-family: "IBM Plex Mono", monospace; font-size: 50px; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; color: var(--screen); }
+.a-mission .head .acc { color: var(--orange); }
+.a-mission .head .cursor { display: inline-block; width: 26px; height: 50px; background: var(--orange); vertical-align: -6px; margin-left: 6px; animation: blink 1s steps(1) infinite; }
+.a-mission .robots { margin-top: 56px; width: 100%; }
+.a-mission .robots img { width: 100%; display: block; }
+
+/* coverage */
+.cov { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; margin-top: 26px; flex: 1; min-height: 0; align-content: center; padding-bottom: 20px; }
+.cov .grp { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--note); margin-bottom: 12px; }
+.bars { display: flex; flex-direction: column; gap: 12px; }
+.bars .r { display: grid; grid-template-columns: 220px 1fr 64px; align-items: center; gap: 14px; }
+.bars .lab { text-align: right; font-size: 17px; color: var(--body); }
+.bars .trk { height: 32px; background: #f7ece4; border-radius: 7px; position: relative; overflow: hidden; }
+.bars .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 7px; background: #f0a58c; }
+.bars .r.hot .bar { background: var(--orange); }
+.bars .val { font-family: "Outfit", sans-serif; font-size: 19px; font-weight: 600; color: var(--ink); }
+.slide.active .bars .bar { animation: grow 1.1s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes grow { from { width: 0; } to { width: var(--w); } }
+.scenes { display: flex; height: 78px; border-radius: 12px; overflow: hidden; }
+.scenes div { display: flex; flex-direction: column; justify-content: center; padding: 0 14px; color: #fff; }
+.scenes b { font-family: "Outfit", sans-serif; font-size: 21px; font-weight: 600; line-height: 1.1; }
+.scenes span { font-size: 13px; opacity: .9; }
+.cov .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.cov .chips .chipK { font-size: 14px; padding: 4px 12px; }
+.cov .chips .chipK em { font-style: normal; color: var(--note); margin-left: 4px; }
+
+/* hiring */
+.a-hire { padding: 56px 96px 96px; }
+.hire { display: grid; grid-template-columns: 1fr 300px; gap: 56px; margin-top: 22px; flex: 1; min-height: 0; }
+.hire .blk + .blk { margin-top: 20px; }
+.hire .grp { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+.hire .k-list { gap: 7px; }
+.hire .k-list li { font-size: 17.5px; }
+.hire .k-list li::before { top: 7px; width: 9px; height: 9px; border-width: 3px; }
+.hire .k-list li small { color: var(--note); font-size: 15px; }
+.qrbox { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.qrbox .qr { width: 280px; height: 280px; background: #fff; border-radius: 18px; padding: 12px; border: 1px solid var(--line); box-shadow: 0 5px 0 var(--orange); }
+.qrbox .qr img { width: 100%; height: 100%; display: block; }
+.qrbox .t { font-family: "Outfit", sans-serif; font-size: 24px; font-weight: 600; margin-top: 22px; }
+.qrbox .s { font-size: 15px; color: var(--note); margin-top: 4px; line-height: 1.4; }
+
+/* close with four QR codes */
+.a-close.qrs { padding: 72px 96px 96px; }
+.a-close.qrs h1 { font-size: 76px; max-width: none; }
+.a-close .say { font-size: 24px; color: var(--blush); margin-top: 14px; }
+.qrrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 40px; }
+.qrrow .q { background: var(--cream); border-radius: 18px; padding: 16px 16px 14px; box-shadow: 0 4px 0 var(--ember); color: var(--ink); text-align: center; }
+.qrrow .q img { width: 100%; aspect-ratio: 1; display: block; }
+.qrrow .q .t { font-family: "Outfit", sans-serif; font-size: 19px; font-weight: 600; margin-top: 8px; }
+.qrrow .q .u { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--note); margin-top: 1px; }
+.qrrow .q.hot { background: var(--ink); color: var(--screen); box-shadow: 0 4px 0 #000; }
+.qrrow .q.hot .u { color: var(--hot); }
+.qrrow .q.hot img { border-radius: 8px; }

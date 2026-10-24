@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Day · Host Talk</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="host.css">
+</head>
+<body>
+<div class="deck"><div class="stage">
+
+<!-- ===== H01 · TITLE (orange) ===== -->
+<section class="slide sl-orange a-title" id="h01">
+  <div class="wm-layer half-r"></div>
+  <div class="eyebrow">Robotics Hardware Hackathon</div>
+  <h1>Welcome to<br>Demo Day</h1>
+  <div class="sub">Junfan Labs × Abaka AI · Oct 24, 2026</div>
+  <div class="who">Bangya Liu <span>· Abaka AI · your host today</span></div>
+  <div class="robots"><img src="assets/robots.svg" alt="Pixel robots in a row: rover, arm, quadruped, mobile manipulator, humanoid"></div>
+  <div class="logos"><span>Junfan Labs</span><span class="x">×</span><img src="assets/logo_horizontal_white.png" alt="Abaka AI"></div>
+</section>
+
+<!-- ===== H02 · THANK YOU (paper, statement) ===== -->
+<section class="slide sl-paper a-say" id="h02">
+  <div class="wm-layer"></div>
+  <div class="line">Hardware is hard. <b>Thank you for building anyway.</b></div>
+  <div class="subline">Thanks to every team that brought a robot today, and to Junfan Labs for running this hackathon with us.</div>
+  <div class="k-foot">
+    <span class="wm">abaka ai <span>· demo day</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>02</b> · WELCOME</span>
+  </div>
+</section>
+
+<!-- ===== H03 · WHO WE ARE (paper) ===== -->
+<section class="slide sl-paper" id="h03">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Who we are</div>
+  <div class="k-h2">Abaka AI is a <b>data company</b> for AI teams</div>
+  <div class="mid">
+  <div class="nums">
+    <div class="cardK"><div class="n">1,000+</div><div class="l">AI companies we have worked with as their data partner</div></div>
+    <div class="cardK"><div class="n">1M</div><div class="l">specialized annotators in our network</div></div>
+    <div class="cardK"><div class="n">50+</div><div class="l">countries where that network lives and collects</div></div>
+  </div>
+  <div class="cycle">
+    <span class="lab">the whole data lifecycle</span>
+    <span class="chipK">collect</span><span class="ar">→</span>
+    <span class="chipK">curate</span><span class="ar">→</span>
+    <span class="chipK">annotate</span><span class="ar">→</span>
+    <span class="chipK">train</span><span class="ar">→</span>
+    <span class="chipK">evaluate</span>
+  </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka ai <span>· demo day</span></span>
+    <span class="cite">abaka.ai</span>
+    <span class="idx"><b>03</b> · ABAKA</span>
+  </div>
+</section>
+
+<!-- ===== H04 · MISSION (dark, poster terminal) ===== -->
+<section class="slide sl-dark a-mission" id="h04">
+  <div class="wm-layer"></div>
+  <div class="cmd"><b>$</b> cat mission.txt</div>
+  <div class="head">Internet built foundation of GPT,<br><span class="acc">we build foundation of robots.</span><span class="cursor"></span></div>
+  <div class="robots"><img src="assets/robots.svg" alt="Pixel robots in a row: rover, arm, quadruped, mobile manipulator, humanoid"></div>
+  <div class="k-foot">
+    <span class="wm">abaka ai <span>· demo day</span></span>
+    <span class="cite"></span>
+    <span class="idx"><b>04</b> · MISSION</span>
+  </div>
+</section>
+
+<!-- ===== H05 · PHYSICAL AI DATA WALL (dark) ===== -->
+<section class="slide sl-dark a-wall" id="h05">
+  <div class="wm-layer"></div>
+  <h2>Human, robot and world data, <b>in one training corpus</b></h2>
+  <div class="tiles c3">
+    <div class="tile"><video src="assets/products/ego.mp4" muted loop playsinline></video><span>human · egocentric video</span></div>
+    <div class="tile"><video src="assets/products/handpose.mp4" muted loop playsinline></video><span>human · hand pose</span></div>
+    <div class="tile"><video src="assets/products/tactile.mp4" muted loop playsinline></video><span>human · tactile gloves</span></div>
+    <div class="tile"><video src="assets/products/teleop.mp4" muted loop playsinline></video><span>robot · teleoperation</span></div>
+    <div class="tile"><video src="assets/products/3d_indoor.mp4" muted loop playsinline></video><span>world · 3D indoor scenes</span></div>
+    <div class="tile"><video src="assets/products/simulation.mp4" muted loop playsinline></video><span>world · simulation</span></div>
+  </div>
+  <div class="punch mono">abaka.ai/physical-ai · vision, depth, hand pose and touch, captured together</div>
+</section>
+
+<!-- ===== H06 · COVERAGE (paper) ===== -->
+<section class="slide sl-paper" id="h06">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">Physical AI data</div>
+  <div class="k-h2">Recorded where people <b>actually work</b></div>
+  <div class="cov">
+    <div>
+      <div class="grp">tasks · share of dataset</div>
+      <div class="bars">
+        <div class="r hot"><span class="lab">Retail &amp; merchandising</span><span class="trk"><span class="bar" style="--w:95%"></span></span><span class="val">20.9%</span></div>
+        <div class="r hot"><span class="lab">Cooking &amp; meals</span><span class="trk"><span class="bar" style="--w:86.8%"></span></span><span class="val">19.1%</span></div>
+        <div class="r"><span class="lab">Cleaning &amp; sanitation</span><span class="trk"><span class="bar" style="--w:75.5%"></span></span><span class="val">16.6%</span></div>
+        <div class="r"><span class="lab">Storage &amp; organization</span><span class="trk"><span class="bar" style="--w:61.4%"></span></span><span class="val">13.5%</span></div>
+        <div class="r"><span class="lab">Assembly &amp; manufacturing</span><span class="trk"><span class="bar" style="--w:54.1%"></span></span><span class="val">11.9%</span></div>
+        <div class="r"><span class="lab">Dressing &amp; textile</span><span class="trk"><span class="bar" style="--w:41.8%"></span></span><span class="val">9.2%</span></div>
+        <div class="r"><span class="lab">Logistics &amp; care</span><span class="trk"><span class="bar" style="--w:40%"></span></span><span class="val">8.8%</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="grp">scenes</div>
+      <div class="scenes">
+        <div style="flex:45; background:var(--orange);"><b>45%</b><span>home</span></div>
+        <div style="flex:35.5; background:#f0855f;"><b>35.5%</b><span>commercial</span></div>
+        <div style="flex:19.5; background:#c9a491;"><b>19.5%</b><span>factory</span></div>
+      </div>
+      <div class="grp" style="margin-top:30px;">countries</div>
+      <div class="chips">
+        <span class="chipK">United States<em>28.7</em></span>
+        <span class="chipK">India<em>20.5</em></span>
+        <span class="chipK">Nigeria<em>8.0</em></span>
+        <span class="chipK">Kenya<em>7.3</em></span>
+        <span class="chipK">Brazil<em>5.6</em></span>
+        <span class="chipK">Canada<em>4.4</em></span>
+        <span class="chipK">United Kingdom<em>3.7</em></span>
+        <span class="chipK">Egypt<em>2.9</em></span>
+        <span class="chipK">Philippines<em>1.4</em></span>
+        <span class="chipK">Indonesia<em>1.3</em></span>
+        <span class="chipK">Argentina<em>1.1</em></span>
+        <span class="chipK">Pakistan<em>0.9</em></span>
+        <span class="chipK">others<em>14.3</em></span>
+      </div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka ai <span>· demo day</span></span>
+    <span class="cite">abaka.ai/physical-ai · dataset diversity, % of dataset</span>
+    <span class="idx"><b>06</b> · PHYSICAL AI</span>
+  </div>
+</section>
+
+<!-- ===== H07 · HIRING (paper) ===== -->
+<section class="slide sl-paper a-hire" id="h07">
+  <div class="wm-layer"></div>
+  <div class="k-eyebrow">We're hiring</div>
+  <div class="k-h2">Machine Learning Engineer, <b>Robotics</b></div>
+  <div class="hire">
+    <div>
+      <div class="blk">
+        <div class="grp">you will</div>
+        <ul class="k-list">
+          <li><b>Build the data pipeline</b> <small>video, robot logs, teleop, 3D scans → training data</small></li>
+          <li><b>Validate and curate</b> <small>measured checks, dedup, filtering, scoring, mixing</small></li>
+          <li><b>Train and evaluate policies</b> <small>imitation, diffusion, WAM, VLA, RL → which data actually helps</small></li>
+        </ul>
+      </div>
+      <div class="blk">
+        <div class="grp">why abaka</div>
+        <ul class="k-list">
+          <li><b>Abaka Robotics Lab:</b> real robots onsite, down the hall</li>
+          <li><b>Close to academia:</b> deep collaboration with top labs</li>
+        </ul>
+      </div>
+      <div class="blk">
+        <div class="grp">we look for</div>
+        <ul class="k-list">
+          <li>MS, PhD or an exceptional BS in robotics, CS, EE, ME or related</li>
+          <li>1–3 years hands-on with <b>real robots</b>; ML, robotics and 3D vision fundamentals</li>
+        </ul>
+      </div>
+    </div>
+    <div class="qrbox">
+      <div class="qr"><img src="assets/qr/apply.svg" alt="QR code: apply as a Demo Day attendee"></div>
+      <div class="t">Scan to apply</div>
+      <div class="s">Open only to today's attendees.<br>Not this role? abaka.ai/careers</div>
+    </div>
+  </div>
+  <div class="k-foot">
+    <span class="wm">abaka ai <span>· demo day</span></span>
+    <span class="cite">also hiring for other positions</span>
+    <span class="idx"><b>07</b> · HIRING</span>
+  </div>
+</section>
+
+<!-- ===== H08 · CLOSE (orange, four QR codes) ===== -->
+<section class="slide sl-orange a-close qrs" id="h08">
+  <div class="wm-layer half-r"></div>
+  <h1>Let's see the demos.</h1>
+  <div class="say">Come find me after. Happy to talk robots, data, or the job.</div>
+  <div class="qrrow">
+    <div class="q"><img src="assets/qr/home.svg" alt="QR code: abaka.ai"><div class="t">Abaka AI</div><div class="u">abaka.ai</div></div>
+    <div class="q"><img src="assets/qr/li_company.svg" alt="QR code: Abaka AI on LinkedIn"><div class="t">Abaka AI on LinkedIn</div><div class="u">/company/abaka-ai</div></div>
+    <div class="q"><img src="assets/qr/li_bangya.svg" alt="QR code: Bangya Liu on LinkedIn"><div class="t">Bangya on LinkedIn</div><div class="u">/in/neutrinoliu</div></div>
+    <div class="q hot"><img src="assets/qr/apply.svg" alt="QR code: apply as a Demo Day attendee"><div class="t">Apply today</div><div class="u">attendees only</div></div>
+  </div>
+</section>
+
+</div></div>
+<div class="hud">
+  <span class="cnt mono"></span>
+  <button class="prev" title="previous">←</button>
+  <button class="next" title="next">→</button>
+  <button class="fs" title="fullscreen (F)">⛶</button>
+</div>
+<div class="progress"><i></i></div>
+<script src="deck.js"></script>
+</body>
+</html>
